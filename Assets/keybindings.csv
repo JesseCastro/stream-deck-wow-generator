@@ -1,0 +1,60 @@
+Key,Modifiers,Action,Category,Notes
+1,,ACTIONBUTTON1,Main Bar,Main action bar slot 1
+2,,ACTIONBUTTON2,Main Bar,Main action bar slot 2
+3,,ACTIONBUTTON3,Main Bar,Main action bar slot 3
+4,,ACTIONBUTTON4,Main Bar,Main action bar slot 4
+5,,ACTIONBUTTON5,Main Bar,Main action bar slot 5
+6,,ACTIONBUTTON6,Main Bar,Main action bar slot 6
+7,,ACTIONBUTTON7,Main Bar,Main action bar slot 7
+8,,ACTIONBUTTON8,Main Bar,Main action bar slot 8
+9,,ACTIONBUTTON9,Main Bar,Main action bar slot 9
+0,,ACTIONBUTTON10,Main Bar,Main action bar slot 10
+-,,ACTIONBUTTON11,Main Bar,Main action bar slot 11
+=,,ACTIONBUTTON12,Main Bar,Main action bar slot 12
+Q,,MULTIACTIONBAR1BUTTON1,Left Bar,Combat ability
+E,,MULTIACTIONBAR1BUTTON2,Left Bar,Combat ability
+R,,MULTIACTIONBAR1BUTTON3,Left Bar,Combat ability
+T,,MULTIACTIONBAR1BUTTON4,Left Bar,Travel/Stomp
+F,,ASSISTTARGET,Targeting,Assist/Focus target
+V,,MULTIACTIONBAR1BUTTON5,Left Bar,Interrupt
+C,,MULTIACTIONBAR1BUTTON6,Left Bar,CC ability
+X,,MULTIACTIONBAR1BUTTON7,Left Bar,Movement ability
+Z,,MULTIACTIONBAR1BUTTON8,Left Bar,Defensive cooldown
+G,,TARGETLASTHOSTILE,Targeting,Target last hostile
+1,Shift,MULTIACTIONBAR2BUTTON1,Right Bar,Major cooldown
+2,Shift,MULTIACTIONBAR2BUTTON2,Right Bar,Major cooldown 2
+3,Shift,MULTIACTIONBAR2BUTTON3,Right Bar,Utility
+4,Shift,MULTIACTIONBAR2BUTTON4,Right Bar,Utility 2
+5,Shift,MULTIACTIONBAR2BUTTON5,Right Bar,Utility 3
+6,Shift,MULTIACTIONBAR2BUTTON6,Right Bar,Utility 4
+Q,Shift,MULTIACTIONBAR3BUTTON1,Bottom Left Bar,Extra combat
+E,Shift,MULTIACTIONBAR3BUTTON2,Bottom Left Bar,Lay on Hands type
+R,Shift,MULTIACTIONBAR3BUTTON3,Bottom Left Bar,Extra utility
+T,Shift,MULTIACTIONBAR3BUTTON4,Bottom Left Bar,Profession ring
+F,Shift,FOCUSTARGET,Targeting,Set focus
+V,Shift,MULTIACTIONBAR3BUTTON5,Bottom Left Bar,Extra interrupt
+C,Shift,MULTIACTIONBAR3BUTTON6,Bottom Left Bar,Extra CC
+X,Shift,MULTIACTIONBAR3BUTTON7,Bottom Left Bar,Extra movement
+Z,Shift,MULTIACTIONBAR3BUTTON8,Bottom Left Bar,Extra defensive
+1,Ctrl,MULTIACTIONBAR4BUTTON1,Bottom Right Bar,Pet attack
+2,Ctrl,MULTIACTIONBAR4BUTTON2,Bottom Right Bar,Pet follow
+3,Ctrl,MULTIACTIONBAR4BUTTON3,Bottom Right Bar,Pet passive
+4,Ctrl,MULTIACTIONBAR4BUTTON4,Bottom Right Bar,Extra utility
+8,Ctrl+Shift,RAIDTARGET8,Raid,Mark Skull
+R,Ctrl,BATTLERES,Combat,Battle Res
+R,Ctrl+Shift,RELOADUI,System,Reload UI
+F,Alt,FOCUSTARGET,Targeting,Set focus target
+R,Alt,MULTIACTIONBAR4BUTTON5,Bottom Right Bar,Glider
+E,Alt,MULTIACTIONBAR4BUTTON6,Bottom Right Bar,Belt
+M,,MOUNT,Travel,Mount up
+\,,RAIDTARGETINGICON,Raid,Raid markers
+\,Shift,WORLDMARKER,Raid,World markers
+`,, INTERACTTARGET,Targeting,Interact with target
+F1,,TARGETSELF,Targeting,Target self / Bubble
+F2,,TARGETPARTYMEMBER1,Targeting,Target party 1
+F3,,TARGETPARTYMEMBER2,Targeting,Target party 2
+F4,,TARGETPARTYMEMBER3,Targeting,Target party 3
+F5,,TARGETPARTYMEMBER4,Targeting,Target party 4
+F12,,TOGGLEBACKPACK,Interface,Hearth (macro)
+Tab,,TARGETNEARESTENEMY,Targeting,Target nearest enemy
+P,Ctrl,SCREENSHOT,System,Screenshot

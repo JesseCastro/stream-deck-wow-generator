@@ -1,0 +1,38 @@
+Icon Name,Original Path,Correct Path,Found
+# SHARED
+WarStomp,Ability/WarStomp/Ability_WarStomp.png,Ability/Ability_WarStomp.png,YES
+
+# PROFESSIONS (found UI/Profession icons)
+Engineering,Trade/Engineering/Trade_Engineering.png,UI/Profession/UI_Profession_Engineering.png,YES
+Herbalism,Trade/Herbalism/Trade_Herbalism.png,UI/Profession/UI_Profession_Herbalism.png,YES
+Fishing,Trade/Fishing/Trade_Fishing.png,UI/Profession/UI_Profession_Fishing.png,YES
+Cooking,INV/Misc/INV_Misc_Food_15.png,UI/Profession/UI_Profession_Cooking.png,YES
+Archaeology,Trade/Archaeology/Trade_Archaeology.png,Misc/Archaeology/5/Archaeology_5_0_Keystone_Mogu.png,YES
+Alchemy,N/A,UI/Profession/UI_Profession_Alchemy.png,YES
+Blacksmithing,N/A,UI/Profession/UI_Profession_Blacksmithing.png,YES
+Mining,N/A,UI/Profession/UI_Profession_Mining.png,YES
+Tailoring,N/A,UI/Profession/UI_Profession_Tailoring.png,YES
+Leatherworking,N/A,UI/Profession/UI_Profession_Leatherworking.png,YES
+Skinning,N/A,UI/Profession/UI_Profession_Skinning.png,YES
+Jewelcrafting,N/A,UI/Profession/UI_Profession_Jewelcrafting.png,YES
+Inscription,N/A,UI/Profession/UI_Profession_Inscription.png,YES
+Enchanting,N/A,UI/Profession/UI_Profession_Enchanting.png,YES
+
+# DRUID
+Thrash,Ability/Druid/Ability_Druid_Thrash.png,Spell/druid/spell_druid_thrash.png,YES
+
+# MAGE
+Counterspell,Spell/Frost/Spell_Frost_Counterspell.png,INV/1115/Mage/INV_1115_Mage_Counterspell.png,YES
+Pyroblast,Spell/Fire/Spell_Fire_Pyroblast.png,Misc/Sha/Spell/Sha_Spell_Fire_BluePyroblast.png,YES
+IceBlock,Spell/Frost/Spell_Frost_IceBlock.png,Misc/Creatureportrait/Creature/Creatureportrait_Creature_Iceblock.png,WORKAROUND
+
+# PRIEST
+Silence,Spell/Shadow/Spell_Shadow_Silence.png,Spell/Shadow/Spell_Shadow_ConeOfSilence.png,YES
+Dispersion,Spell/Shadow/Spell_Shadow_Dispersion.png,Spell/Shadow/Spell_Shadow_Dispersion.png,YES
+
+# HUNTER  
+FeignDeath,Ability/Hunter/Ability_Hunter_FeignDeath.png,Ability/Rogue/Ability_Rogue_FeignDeath.png,YES
+AspectTurtle,Ability/Hunter/Ability_Hunter_AspectoftheTurtle.png,INV/Misc/Fish/INV_Misc_Fish_Turtle_02.png,WORKAROUND
+
+# MONK
+FistsOfFury,Ability/Monk/Ability_Monk_FistsOfFury.png,Misc/Monk/Ability/Monk_Ability_FistofFury.png,YES

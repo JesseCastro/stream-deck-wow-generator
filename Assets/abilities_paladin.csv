@@ -1,0 +1,44 @@
+Ability,Key,Modifiers,Icon,Spec,Category,Notes
+# PALADIN ABILITIES
+## Core Rotational
+Crusader Strike,1,,Spell_Holy_CrusaderStrike.png,All,Rotational,Builder
+Judgment,2,,Spell_Holy_RighteousFury.png,All,Rotational,Builder
+Consecration,3,,Spell_Holy_InnerFire.png,All,Rotational,AoE
+Hammer of Wrath,4,,Ability_ThunderClap.png,All,Rotational,Execute
+Shield of the Righteous,Q,,Ability_Paladin_ShieldoftheRighteous.png,Prot,Rotational,Active mitigation
+Word of Glory,E,,Spell_Holy_WordOfGlory.png,All,Rotational,Self heal
+
+## Major Cooldowns
+Avenging Wrath,1,Shift,Spell_Holy_AvengeWraith.png,All,Cooldowns,Wings
+Guardian of Ancient Kings,2,Shift,Ability_Paladin_GuardianOfAncientKings.png,Prot,Cooldowns,Major defensive
+Divine Shield,F1,,Spell_Holy_DivineIntervention.png,All,Cooldowns,Bubble
+Lay on Hands,E,Shift,Spell_Holy_LayOnHands.png,All,Cooldowns,Emergency heal
+Blessing of Protection,3,Shift,Spell_Holy_SealOfProtection.png,All,Cooldowns,BoP
+
+## Defensives
+Divine Protection,Z,,Spell_Holy_DivineProtection.png,All,Defensive,20% DR
+Ardent Defender,Z,Shift,Spell_Holy_ArdentDefender.png,Prot,Defensive,Cheat death
+Shield of Vengeance,4,Shift,Ability_Paladin_ShieldofVengeance.png,Ret,Defensive,Absorb
+
+## Utility
+Blessing of Freedom,5,Shift,Spell_Holy_SealOfValor.png,All,Utility,Freedom
+Blessing of Sacrifice,6,Shift,Spell_Holy_SealOfSacrifice.png,All,Utility,Sac
+Cleanse,C,,Spell_Holy_Purify.png,All,Utility,Dispel
+Hand of Reckoning,G,,Spell_Holy_UnyieldingFaith.png,All,Utility,Taunt
+Rebuke,V,,Ability_Paladin_ShieldoftheTemplar.png,All,Utility,Interrupt
+Hammer of Justice,C,Shift,Spell_Holy_SealOfMight.png,All,Utility,Stun
+Repentance,X,Shift,Spell_Holy_PrayerOfHealing.png,All,Utility,CC
+Turn Evil,X,,Spell_Holy_TurnEvil.png,All,Utility,Fear undead
+
+## Auras/Buffs
+Devotion Aura,7,,Spell_Holy_DevotionAura.png,All,Buff,Aura
+Retribution Aura,8,,Spell_Holy_RetributionAura.png,All,Buff,Aura
+Concentration Aura,9,,Spell_Holy_MindSooth.png,All,Buff,Aura
+Blessing of Kings,0,,Spell_Magic_MageArmor.png,All,Buff,Stat buff
+
+## Movement
+Divine Steed,R,,Ability_Paladin_DivineSteed.png,All,Movement,Speed boost
+Door of Shadows,R,Shift,Ability_Revendreth_Paladin.png,All,Movement,Covenant
+
+## Racials (Tauren)
+War Stomp,T,,Ability_WarStomp.png,Racial,Utility,AoE stun

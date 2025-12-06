@@ -1,0 +1,6 @@
+Ability,Key,Modifiers,Icon,Spec,Category,Notes
+Cooking,1,,Trade_Cooking.png,All,Crafting,Profession
+Alchemy,2,,Trade_Alchemy.png,All,Crafting,Profession
+Fishing,3,,Trade_Fishing.png,All,Crafting,Profession
+Hearthstone,F12,,INV_Misc_Rune_13.png,All,General,Hearth
+Basic Campfire,4,,Spell_Fire_Fire.png,All,Crafting,Cooking Fire

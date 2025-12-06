@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+
+# Build output
+*.streamDeckProfile
+build/
+dist/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Secrets baseline (detect-secrets)
+# Keep .secrets.baseline but ignore actual secrets
+*.pem
+*.key
+
+# Test coverage
+coverage/

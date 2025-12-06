@@ -1,0 +1,27 @@
+{
+    "name": "streamdeck-generator",
+    "version": "1.0.0",
+    "description": "TDD-driven Stream Deck profile generator for WoW",
+    "main": "src/index.js",
+    "scripts": {
+        "test": "jest",
+        "test:watch": "jest --watch",
+        "lint": "eslint src tests",
+        "lint:fix": "eslint src tests --fix",
+        "generate": "node src/index.js"
+    },
+    "keywords": [
+        "stream-deck",
+        "wow",
+        "profile-generator"
+    ],
+    "license": "MIT",
+    "devDependencies": {
+        "eslint": "^8.57.0",
+        "jest": "^29.7.0"
+    },
+    "dependencies": {
+        "archiver": "^7.0.1",
+        "jszip": "^3.10.1"
+    }
+}

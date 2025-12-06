@@ -1,0 +1,57 @@
+## 🎫 Task: {{ title }}
+
+**Priority:** {{ priority }}
+**Tags:** {{#each tags}}`{{this}}` {{/each}}
+**Assignee:** {{#if assignee}}{{ assignee }}{{else}}[Unassigned]{{/if}}
+
+### 📖 User Story
+> **As a** {{ user_story.role }}
+> **I want** {{ user_story.action }}
+> **So that** {{ user_story.benefit }}
+
+---
+
+### ✅ Acceptance Criteria
+The task is considered "Done" when the following conditions are met:
+
+{{#each acceptance_criteria}}
+* [ ] {{this}}
+{{/each}}
+
+---
+
+### ⚙️ Technical Specifications
+
+* **Component/File:** `{{ technical.file_path }}`
+* **Input:** {{ technical.input_desc }}
+* **Output:** {{ technical.output_desc }}
+
+{{#if technical.constraints}}
+**Constraints:**
+{{#each technical.constraints}}
+* {{this}}
+{{/each}}
+{{/if}}
+
+---
+
+### 🧪 Testing Recommendations
+Please cover the following scenarios:
+
+{{#each test_cases}}
+{{incrementIndex @index}}. **{{ name }}:** Input `{{ input }}` → Output `{{ output }}`
+{{/each}}
+
+---
+
+### 📝 Suggested Commit Message
+
+```text
+{{ commit_message.type }}({{ commit_message.scope }}): {{ commit_message.subject }}
+
+{{#each commit_message.details}}
+- {{this}}
+{{/each}}
+
+Relates to {{ ticket_id }}
+```
