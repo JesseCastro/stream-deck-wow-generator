@@ -24,7 +24,7 @@ This list breaks down the implementation of `streamdeck-generator` into atomic, 
 13. **[T-013]** [x] Implement Racial Ability Lookup
 
 ## Phase 5: Output & CLI (Priority: Low)
-14. **[T-014]** Implement WoW Macro File Generator
+14. **[T-014]** [x] Implement WoW Macro File Generator
 15. **[T-015]** Implement Docs Generator (Credits & Profile Nav Matrix)
 16. **[T-016]** Final CLI Polish & End-to-End Test
 
