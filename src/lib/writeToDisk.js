@@ -24,7 +24,7 @@ async function writeToDisk({ mainProfile, additionalProfiles }, options = {}) {
 
     if (!rootDir) throw new Error('Failed to create root directory');
 
-    rootDir.file('manifest.json', JSON.stringify(topLevelManifest(mainProfile)));
+    rootDir.file('manifest.json', JSON.stringify(topLevelManifest(mainProfile, additionalProfiles)));
     const profilesDir = rootDir.folder('Profiles');
 
     if (!profilesDir) throw new Error('Failed to create profiles directory');

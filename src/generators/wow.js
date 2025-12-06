@@ -106,7 +106,18 @@ function generate(argv) {
     function convertToAction(item, profileName) {
         if (!item || item.type === 'empty') return null;
 
-        if (item.type === 'back') return back();
+        if (item.type === 'back') {
+            // Resolve Back button icon
+            const backIconPath = iconManager.resolveIcon('Back');
+            let backImage = undefined;
+            if (backIconPath) {
+                const basename = path.basename(backIconPath);
+                if (!usedImages[profileName]) usedImages[profileName] = {};
+                usedImages[profileName][basename] = backIconPath;
+                backImage = basename;
+            }
+            return back(backImage);
+        }
 
         // Handle Folders
         if (item.type === 'folder') {
@@ -181,13 +192,16 @@ function generate(argv) {
             }
         } else if (item.type === 'macro') {
             return {
-                'ActionID': 'com.elgato.streamdeck.profile.text',
+                'ActionID': '00000000-0000-0000-0000-000000000000',
+                'LinkedTitle': true,
                 'Name': item.name,
                 'Settings': {
-                    'Command': `${item.settings.macro}\n`,
+                    'Text': item.settings.macro,
+                    'SendEnter': true
                 },
                 'State': 0,
-                'States': [{ 'Image': imageParams.image ? `Images/${imageParams.image}` : undefined, 'Title': item.name }]
+                'States': [{ 'Image': imageParams.image ? `Images/${imageParams.image}` : undefined, 'Title': item.name }],
+                'UUID': 'com.elgato.streamdeck.system.text'
             };
         }
 
@@ -231,7 +245,16 @@ function generate(argv) {
         subProfiles.push(profile({ name: name, actions: grid, uuid: uuids[name] })); // Pass pre-generated UUID
     }
 
-    buildProfile('Group', groupActions);
+    // Prevent Recursion in Group Profile (Group -> Universal -> Raid Markers -> Group)
+    const safeGroupActions = groupActions.map(item => {
+        if (item && item.name === 'Raid Markers') {
+            console.log('Recursion Prevention: Removing Raid Markers folder from Group Profile');
+            return { type: 'empty' }; // Replace with empty
+        }
+        return item;
+    });
+
+    buildProfile('Group', safeGroupActions);
     buildProfile('PvP', pvpActions);
     buildProfile('Consumables', consumablesActions);
     buildProfile('Professions', professionsActions);

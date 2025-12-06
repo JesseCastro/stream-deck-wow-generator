@@ -66,7 +66,7 @@ function profile({ name, actions, uuid }) {
  * @param {Profile} mainProfile
  * @returns {Object}
  */
-function topLevelManifest(mainProfile) {
+function topLevelManifest(mainProfile, additionalProfiles = []) {
     return {
         'Name': mainProfile.name,
         'Pages': {

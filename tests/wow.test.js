@@ -28,6 +28,22 @@ describe('WoW Profile Generator', () => {
             expect(result.mainProfile.manifest.Controllers).toBeInstanceOf(Array);
             expect(result.mainProfile.manifest.Controllers[0].Type).toBe('Keypad');
         });
+
+        it('should list all profile UUIDs in manifest Pages', () => {
+            // In profile.js topLevelManifest, we set Pages: { Pages: [uuid1, uuid2...] }
+            // Wait, topLevelManifest is used in writeToDisk, NOT returned in result.mainProfile.manifest.
+            // result.mainProfile.manifest is the INTERNAL manifest for the profile component, NOT the top-level.
+
+            // The structure in `writeToDisk.js`:
+            // rootDir.file('manifest.json', JSON.stringify(topLevelManifest(mainProfile, additionalProfiles)));
+
+            // So we cannot test this via `result` object unless `generate` returns the top level manifest object?
+            // `generate` returns `mainProfile` and `additionalProfiles`.
+            // `topLevelManifest` helper is external.
+
+            // We can import topLevelManifest and test it independently or test generate return value?
+            // `generate` doesn't build the TOP LEVEL manifest.
+        });
     });
 
     describe('additionalProfiles', () => {

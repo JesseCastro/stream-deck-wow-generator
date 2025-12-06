@@ -12,7 +12,8 @@ function GenerateMainPage(keybindManager, iconManager) {
         { name: 'Profs', type: 'folder' }, // Professions
         { name: 'Mounts', type: 'folder' },
         { name: 'Consumes', type: 'folder' }, // Consumables
-        { name: 'Nameplates', type: 'hotkey', defaultKey: 'V' }
+        { name: 'Nameplates', type: 'hotkey', defaultKey: 'V' },
+        { name: 'Spacer_R1', type: 'empty' } // Pad to 8 items
     ];
 
     const row2 = [
