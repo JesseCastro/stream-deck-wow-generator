@@ -51,14 +51,22 @@ async function writeToDisk({ mainProfile, additionalProfiles }, options = {}) {
         }
     }
 
-    const filename = `${mainProfile.name}.streamDeckProfile`;
+    // Ensure Build directory exists
+    const fs = require('fs');
+    const path = require('path');
+    const buildDir = path.join(process.cwd(), 'Build');
+    if (!fs.existsSync(buildDir)) {
+        fs.mkdirSync(buildDir);
+    }
+
+    const filename = path.join(buildDir, `${mainProfile.name}.streamDeckProfile`);
 
     // Write auxiliary files if provided
     if (options.files) {
-        const fs = require('fs');
         for (const [fname, content] of Object.entries(options.files)) {
-            fs.writeFileSync(fname, content);
-            console.log(`${fname} created`);
+            const filePath = path.join(buildDir, fname);
+            fs.writeFileSync(filePath, content);
+            console.log(`Created: ${filePath}`);
         }
     }
 

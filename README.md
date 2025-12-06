@@ -84,5 +84,6 @@ streamdeck-generator/
 
 ## ⭐️ Credits & Acknowledgements
 
-- **Icons:** Special thanks to [AcidWeb](https://github.com/AcidWeb/) for the [Clean-Icons-Mechagnome-Edition](https://github.com/AcidWeb/Clean-Icons-Mechagnome-Edition/) pack, which provides the high-quality visual assets for these profiles.
-
+*   **Icons:** [AcidWeb/Clean-Icons-Mechagnome-Edition](https://github.com/AcidWeb/Clean-Icons-Mechagnome-Edition)
+    *   See [docs/ICONS.md](docs/ICONS.md) for processing instructions.
+*   **Original Data:** MySlot exports and wowhead data.
