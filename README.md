@@ -79,3 +79,10 @@ streamdeck-generator/
 ├── Assets/              # Icons and CSV data
 └── docs/                # Additional documentation
 ```
+
+---
+
+## ⭐️ Credits & Acknowledgements
+
+- **Icons:** Special thanks to [AcidWeb](https://github.com/AcidWeb/) for the [Clean-Icons-Mechagnome-Edition](https://github.com/AcidWeb/Clean-Icons-Mechagnome-Edition/) pack, which provides the high-quality visual assets for these profiles.
+
