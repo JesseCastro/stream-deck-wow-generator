@@ -4,19 +4,6 @@ This list breaks down the implementation of `streamdeck-generator` into atomic, 
 
 ## Phase 1: Core Foundation & Data Structures (Priority: High)
 1. **[T-001]** [x] Define Class/Spec/Race Data Structure
-2. **[T-002]** [x] Implement Keybind Manager (CSV Tracking)
-3. **[T-003]** [x] Implement Asset Validator (Ensures Icons Exist)
-
-## Phase 2: Page Generators (Priority: High)
-4. **[T-004]** Implement Universal Bar Generator (Row 4)
-5. **[T-005]** Implement Class Panic Row Generator (Row 3)
-6. **[T-006]** Implement Main Page Layout Generator
-
-## Phase 3: Sub-Page Generators (Priority: Medium)
-7. **[T-007]** Implement Group/Raid Sub-Page
-8. **[T-008]** Implement PvP Sub-Page
-9. **[T-009]** Implement Consumables Sub-Page
-10. **[T-010]** Implement Professions Sub-Page
 11. **[T-011]** Implement Mounts Sub-Page (with Smart Macros)
 
 ## Phase 4: Class Logic (Priority: Medium)
