@@ -2,23 +2,43 @@ const fs = require('fs');
 const path = require('path');
 
 class IconManager {
-    constructor(searchDirs, aliasMapping = {}) {
-        this.searchDirs = searchDirs || [];
-        this.aliasMapping = aliasMapping;
-        // Basic cache to avoid repeated disk lookups
+    constructor(searchDirs, aliases = {}) {
+        // Flatten searchDirs and recurse
+        this.searchDirs = [];
+        this.aliases = aliases;
         this.cache = new Map();
+
+        const addDirs = (dir) => {
+            if (!fs.existsSync(dir)) return;
+            this.searchDirs.push(dir);
+            const entries = fs.readdirSync(dir, { withFileTypes: true });
+            for (const entry of entries) {
+                if (entry.isDirectory()) {
+                    addDirs(path.join(dir, entry.name));
+                }
+            }
+        };
+
+        (searchDirs || []).forEach(d => addDirs(d));
     }
 
+    /**
+     * Resolve an icon name to an absolute path
+     * @param {string} name - Base name of the icon (e.g. 'Spell_Holy_Light')
+     * @returns {string|null} Absolute path or null if not found
+     */
     resolveIcon(name) {
         if (!name) return null;
 
-        // Check alias first
-        let searchName = name;
-        if (this.aliasMapping[name]) {
-            searchName = this.aliasMapping[name];
-        }
+        // Check aliases first
+        const alias = this.aliases[name];
+        const searchName = alias || name;
 
         if (this.cache.has(searchName)) return this.cache.get(searchName);
+
+        // If alias was used, check if the alias itself is a known path? 
+        // No, aliases map Name -> OtherName (e.g. 'Cross' -> 'INV_Misc_Skull').
+        // Then we search for 'INV_Misc_Skull'.
 
         for (const dir of this.searchDirs) {
             if (!fs.existsSync(dir)) continue;
@@ -29,7 +49,7 @@ class IconManager {
             // 1. Exact & Extension match
             for (const candidate of candidates) {
                 const fullPath = path.join(dir, candidate);
-                if (fs.existsSync(fullPath)) {
+                if (fs.existsSync(fullPath) && fs.statSync(fullPath).isFile()) {
                     this.cache.set(name, fullPath); // Cache original name -> path
                     return fullPath;
                 }
@@ -43,8 +63,10 @@ class IconManager {
                 const cleanFile = file.replace(/\s/g, '').toLowerCase().replace(/\.png$/, '');
                 if (cleanFile === cleanSearch) {
                     const fuzzyPath = path.join(dir, file);
-                    this.cache.set(name, fuzzyPath);
-                    return fuzzyPath;
+                    if (fs.statSync(fuzzyPath).isFile()) {
+                        this.cache.set(name, fuzzyPath);
+                        return fuzzyPath;
+                    }
                 }
             }
         }

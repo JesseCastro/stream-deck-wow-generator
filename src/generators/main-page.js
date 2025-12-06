@@ -6,23 +6,23 @@
  */
 function GenerateMainPage(keybindManager, iconManager) {
     const row1 = [
-        { name: 'Class', type: 'folder' },
-        { name: 'Group/Raid', type: 'folder' },
+        { name: 'Spacer', type: 'empty' },
+        { name: 'Group', type: 'folder' },
         { name: 'PvP', type: 'folder' },
-        { name: 'Professions', type: 'folder' },
+        { name: 'Profs', type: 'folder' }, // Professions
         { name: 'Mounts', type: 'folder' },
-        { name: 'Consumables', type: 'folder' },
+        { name: 'Consumes', type: 'folder' }, // Consumables
         { name: 'Nameplates', type: 'hotkey', defaultKey: 'V' }
     ];
 
     const row2 = [
-        { name: 'Friendly Plates', type: 'hotkey', defaultKey: 'Shift+V' },
-        { name: 'Zoom In', type: 'hotkey' }, // default?
+        { name: 'Frnd Plt', type: 'hotkey', defaultKey: 'Shift+V' }, // Friendly Plates
+        { name: 'Zoom In', type: 'hotkey' },
         { name: 'Zoom Out', type: 'hotkey' },
-        { name: 'Toggle UI', type: 'hotkey', defaultKey: 'Alt+Z' },
-        { name: 'Invite Target', type: 'hotkey' },
-        { name: 'Leave Group', type: 'hotkey' },
-        { name: 'Pet Attack', type: 'hotkey', defaultKey: 'Shift+T' },
+        { name: 'Tgl UI', type: 'hotkey', defaultKey: 'Alt+Z' }, // Toggle UI
+        { name: 'Invite', type: 'hotkey' }, // Invite Target
+        { name: 'Leave', type: 'hotkey' }, // Leave Group
+        { name: 'Pet Atk', type: 'hotkey', defaultKey: 'Shift+T' }, // Pet Attack
         { name: 'Spare', type: 'empty' }
     ];
 

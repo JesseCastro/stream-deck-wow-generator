@@ -20,6 +20,10 @@ The task is considered "Done" when the following conditions are met:
     - How to double-click `.streamDeckProfile`
     - How to run the `keybinds.txt` commands (copy/paste to chat)
     - Specific info for the class/spec generated
+* [ ] **[NEW]** Generates `PROFILE_MATRIX.md`:
+    - Markdown table: | Race | Class | Spec | Download Link |
+    - Grouped by Class for clear navigation
+    - Uses Icons in headers if possible
 
 ---
 

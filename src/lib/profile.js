@@ -39,7 +39,7 @@ function folder(targetProfile, image) {
  * @param {(Object|null|undefined)[][]} config.actions
  * @returns {Profile}
  */
-function profile({ name, actions }) {
+function profile({ name, actions, uuid }) {
     const byCoordinate = {};
     actions.forEach((row, rowNum) => {
         row.forEach((actionItem, colNum) => {
@@ -49,7 +49,7 @@ function profile({ name, actions }) {
     });
     return {
         name,
-        uuid: profileId(),
+        uuid: uuid || profileId(),
         manifest: {
             'Controllers': [
                 {

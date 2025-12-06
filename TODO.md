@@ -27,7 +27,7 @@ This list breaks down the implementation of `streamdeck-generator` into atomic, 
 14. **[T-014]** [x] Implement WoW Macro File Generator
 15. **[T-015]** [x] Implement Docs Generator (Credits & Profile Nav Matrix)
 16. **[T-016]** [x] Final CLI Polish & End-to-End Test
-17. **[T-017]** [x] Refactor Output to `Build/` directory
+19. **[T-019]** [x] Fix Icons & Master Layoutput to `Build/` directory
 18. **[T-018]** [x] Document Icon Processing & Restore Scripts
 
 ---

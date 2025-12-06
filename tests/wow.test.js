@@ -31,14 +31,13 @@ describe('WoW Profile Generator', () => {
     });
 
     describe('additionalProfiles', () => {
-        it('should include Paladin profile', () => {
-            const paladin = result.additionalProfiles.find(p => p.name === 'Paladin');
-            expect(paladin).toBeDefined();
-        });
+        const expectedProfiles = ['Group', 'PvP', 'Consumables', 'Professions', 'Mounts', 'Class'];
 
-        it('should include Crafting profile', () => {
-            const crafting = result.additionalProfiles.find(p => p.name === 'Crafting');
-            expect(crafting).toBeDefined();
+        expectedProfiles.forEach(name => {
+            it(`should include ${name} profile`, () => {
+                const p = result.additionalProfiles.find(p => p.name === name);
+                expect(p).toBeDefined();
+            });
         });
 
         it('should have valid UUIDs for all profiles', () => {
@@ -47,6 +46,37 @@ describe('WoW Profile Generator', () => {
                     /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i
                 );
             });
+        });
+    });
+
+    describe('Linking', () => {
+        it('should link Main Page folders to correct Sub-Profile UUIDs', () => {
+            // Find "Group" folder in Main Profile actions
+            const mainActions = result.mainProfile.manifest.Controllers[0].Actions;
+            const actionValues = Object.values(mainActions);
+
+            // Expected Folder Actions
+            const checkLink = (folderName, targetProfileName) => {
+                const folderAction = actionValues.find(a => a.Title === targetProfileName); // Title is set to profile name in folder() helper? 
+                // Wait, folder() helper sets keys: name='Create Folder', title=targetProfile.title? 
+
+                // Let's verify what folder() does in src/lib/profile.js:
+                // title: targetProfile.name
+                // settings: { 'ProfileUUID': targetProfile.uuid }
+
+                const targetProfile = result.additionalProfiles.find(p => p.name === targetProfileName);
+                expect(targetProfile).toBeDefined();
+
+                const matchingAction = actionValues.find(a => a.Settings && a.Settings.ProfileUUID === targetProfile.uuid);
+                expect(matchingAction).toBeDefined();
+                // Title is in States array
+                expect(matchingAction.States).toBeDefined();
+                expect(matchingAction.States[0].Title).toBe(targetProfileName);
+            };
+
+            checkLink('Group', 'Group');
+            checkLink('Professions', 'Professions');
+            checkLink('Consumables', 'Consumables');
         });
     });
 
