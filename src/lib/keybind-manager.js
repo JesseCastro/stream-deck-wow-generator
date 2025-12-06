@@ -79,6 +79,14 @@ class KeybindManager {
         throw new Error(`No available keys left to assign for action: ${actionName}`);
     }
 
+    getAllBindings() {
+        const bindings = [];
+        for (const [_, entry] of this.keyMap) {
+            bindings.push({ id: entry.originalName, key: entry.key });
+        }
+        return bindings;
+    }
+
     exportAll() {
         let output = 'Action,Key,Source\n';
         for (const [_, entry] of this.keyMap) {

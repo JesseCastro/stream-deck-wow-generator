@@ -9,7 +9,6 @@ function GenerateMainPage(keybindManager, iconManager) {
         { name: 'Class', type: 'folder' },
         { name: 'Group/Raid', type: 'folder' },
         { name: 'PvP', type: 'folder' },
-        { name: 'Social', type: 'folder' },
         { name: 'Professions', type: 'folder' },
         { name: 'Mounts', type: 'folder' },
         { name: 'Consumables', type: 'folder' },

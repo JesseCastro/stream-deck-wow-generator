@@ -8,7 +8,8 @@ const { writeToDisk } = require('./lib/writeToDisk');
 
 async function main() {
     const args = process.argv.slice(2);
-    const generatorName = args[0] || 'wow';
+    let generatorName = args[0] || 'wow';
+    if (generatorName.startsWith('-')) generatorName = 'wow';
 
     try {
         const generatorPath = path.join(__dirname, 'generators', `${generatorName}.js`);
@@ -17,7 +18,10 @@ async function main() {
         const generator = require(generatorPath);
         const result = generator(args);
 
-        await writeToDisk(result, { images: result.images || {} });
+        await writeToDisk(result, {
+            images: result.images || {},
+            files: result.files || {}
+        });
 
     } catch (err) {
         console.error('Error:', err.message);

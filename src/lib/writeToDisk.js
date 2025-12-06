@@ -53,6 +53,15 @@ async function writeToDisk({ mainProfile, additionalProfiles }, options = {}) {
 
     const filename = `${mainProfile.name}.streamDeckProfile`;
 
+    // Write auxiliary files if provided
+    if (options.files) {
+        const fs = require('fs');
+        for (const [fname, content] of Object.entries(options.files)) {
+            fs.writeFileSync(fname, content);
+            console.log(`${fname} created`);
+        }
+    }
+
     return new Promise((resolve, reject) => {
         zip.generateNodeStream({ type: 'nodebuffer', streamFiles: true })
             .pipe(createWriteStream(filename))
