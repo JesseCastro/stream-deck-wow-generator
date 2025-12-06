@@ -14,7 +14,7 @@ This list breaks down the implementation of `streamdeck-generator` into atomic, 
 
 ## Phase 3: Sub-Page Generators (Priority: Medium)
 7. **[T-007]** [x] Implement Group/Raid Sub-Page
-8. **[T-008]** Implement PvP Sub-Page
+8. **[T-008]** [x] Implement PvP Sub-Page
 9. **[T-009]** Implement Consumables Sub-Page
 10. **[T-010]** Implement Professions Sub-Page
 11. **[T-011]** Implement Mounts Sub-Page (with Smart Macros)
