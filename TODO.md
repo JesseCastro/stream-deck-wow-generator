@@ -20,8 +20,8 @@ This list breaks down the implementation of `streamdeck-generator` into atomic, 
 11. **[T-011]** [x] Implement Mounts Sub-Page (with Smart Macros)
 
 ## Phase 4: Class Logic (Priority: Medium)
-12. **[T-012]** Implement Paladin Specs (Prot, Ret, Holy)
-13. **[T-013]** Implement Racial Ability Lookup
+12. **[T-012]** [x] Implement Paladin Specs (Prot, Ret, Holy)
+13. **[T-013]** [x] Implement Racial Ability Lookup
 
 ## Phase 5: Output & CLI (Priority: Low)
 14. **[T-014]** Implement WoW Macro File Generator

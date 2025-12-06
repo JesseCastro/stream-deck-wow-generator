@@ -329,6 +329,23 @@ const Classes = {
                     6: 'Rebuke',
                     7: '[Racial]',
                     8: 'Combat Pot'
+                },
+                rotation: {
+                    1: 'Holy Shock',
+                    2: 'Word of Glory',
+                    3: 'Flash of Light',
+                    4: 'Holy Light',
+                    5: 'Light of Dawn',
+                    6: 'Bestow Faith',
+                    7: 'Beacon of Light',
+                    8: 'Crusader Strike',
+                    9: 'Judgment',
+                    10: 'Holy Prism',
+                    11: 'Cleanse',
+                    12: 'Blessing of Freedom',
+                    13: 'Blessing of Sacrifice',
+                    14: 'Rule of Law',
+                    15: '[Empty]'
                 }
             },
             Protection: {
@@ -342,6 +359,23 @@ const Classes = {
                     6: 'Rebuke',
                     7: '[Racial]',
                     8: 'Combat Pot'
+                },
+                rotation: {
+                    1: 'Shield of Righteousness',
+                    2: 'Judgment',
+                    3: 'Hammer of Wrath',
+                    4: "Avenger's Shield",
+                    5: 'Consecration',
+                    6: 'Hammer of the Righteous',
+                    7: 'Hand of Reckoning',
+                    8: 'Blinding Light',
+                    9: 'Hammer of Justice',
+                    10: 'Cleanse Toxins',
+                    11: 'Blessing of Freedom',
+                    12: 'Blessing of Sacrifice',
+                    13: '[Empty]',
+                    14: '[Empty]',
+                    15: '[Empty]'
                 }
             },
             Retribution: {
@@ -355,6 +389,23 @@ const Classes = {
                     6: 'Rebuke',
                     7: '[Racial]',
                     8: 'Combat Pot'
+                },
+                rotation: {
+                    1: "Templar's Verdict",
+                    2: 'Blade of Justice',
+                    3: 'Judgment',
+                    4: 'Hammer of Wrath',
+                    5: 'Crusader Strike',
+                    6: 'Divine Storm',
+                    7: 'Wake of Ashes',
+                    8: 'Hand of Hindrance',
+                    9: 'Blinding Light',
+                    10: 'Hammer of Justice',
+                    11: 'Cleanse Toxins',
+                    12: 'Blessing of Freedom',
+                    13: 'Blessing of Sacrifice',
+                    14: 'Shield of Righteousness',
+                    15: '[Empty]'
                 }
             }
         }
