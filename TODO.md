@@ -10,7 +10,7 @@ This list breaks down the implementation of `streamdeck-generator` into atomic, 
 ## Phase 2: Page Generators (Priority: High)
 4. **[T-004]** [x] Implement Universal Bar Generator (Row 4)
 5. **[T-005]** [x] Implement Class Panic Row Generator (Row 3)
-6. **[T-006]** Implement Main Page Generator (Rows 1-2)
+6. **[T-006]** [x] Implement Main Page Generator (Rows 1-2)
 
 ## Phase 3: Sub-Page Generators (Priority: Medium)
 7. **[T-007]** Implement Group/Raid Sub-Page
