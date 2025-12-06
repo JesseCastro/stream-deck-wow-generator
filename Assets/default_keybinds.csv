@@ -1,0 +1,57 @@
+Category,Action/Command,Default Keybind(s)
+Movement,Move Forward,W
+Movement,Move Backward,S
+Movement,Turn Left,A
+Movement,Turn Right,D
+Movement,Strafe Left,Q
+Movement,Strafe Right,E
+Movement,Jump/Swim Up,Spacebar
+Movement,Auto-Run,Num Lock
+Movement,Sit Down/Stand Up,X
+
+Targeting,Target Nearest Enemy Tab,Tab
+Targeting,Target Previous Enemy,Shift + Tab
+Targeting,Target Nearest Friend,F1
+Targeting,Target Friend 2,F2
+Targeting,Target Friend 3,F3
+Targeting,Target Friend 4,F4
+Targeting,Target Friend 5,F5
+Targeting,Target Self,F1 (or sometimes just the assigned key if set in options)
+Targeting,Target Focus,Shift + F (Default setting for Interact Key as F, but Focus is usually a custom bind)
+
+Action Bars,Action Button 1,1
+Action Bars,Action Button 2,2
+Action Bars,Action Button 3,3
+Action Bars,Action Button 4,4
+Action Bars,Action Button 5,5
+Action Bars,Action Button 6,6
+Action Bars,Action Button 7,7
+Action Bars,Action Button 8,8
+Action Bars,Action Button 9,9
+Action Bars,Action Button 10,0
+Action Bars,Action Button 11,-
+Action Bars,Action Button 12,=
+Action Bars,Extra Action Button 1, (Unbound by default, often near the center of the screen during encounters)
+
+Interface,Open Game Menu,Esc
+Interface,Character Info,C
+Interface,Spellbook & Abilities,P
+Interface,Inventory (Toggle All Bags),B
+Interface,Quest Log,L
+Interface,World Map,M
+Interface,Social Panel (Friends, Guild, Communities),O
+Interface,Guild Panel (If separate),J
+Interface,Professions Tab,K
+Interface,Achievements,Y
+Interface,Reputation Tab,U
+Interface,Dungeon & Raid Finder,I
+Interface,PvP Panel,H
+Interface,Adventure Guide,Shift + J
+Interface,Toggle Combat Log/Chat Entry,Enter
+
+Communication & Miscellaneous,Reply to Whisper,R
+Communication & Miscellaneous,Open Ping Wheel (Hold),G
+Communication & Miscellaneous,Screenshot,Print Screen
+Communication & Miscellaneous,Toggle Action Bar Paging (Next Bar),Shift + Mouse Wheel Down (Scroll Down)
+Communication & Miscellaneous,Toggle Action Bar Paging (Previous Bar),Shift + Mouse Wheel Up (Scroll Up)
+Communication & Miscellaneous,Interact Key,F

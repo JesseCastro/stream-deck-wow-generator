@@ -4,7 +4,7 @@ This list breaks down the implementation of `streamdeck-generator` into atomic, 
 
 ## Phase 1: Core Foundation & Data Structures (Priority: High)
 1. **[T-001]** [x] Define Class/Spec/Race Data Structure
-2. **[T-002]** Implement Keybind Manager (CSV Tracking)
+2. **[T-002]** [x] Implement Keybind Manager (CSV Tracking)
 3. **[T-003]** Implement Asset Validator (Ensures Icons Exist)
 
 ## Phase 2: Page Generators (Priority: High)
