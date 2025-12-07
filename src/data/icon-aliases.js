@@ -555,5 +555,56 @@ module.exports = {
     "Earthen Wall Totem": "spell_nature_stoneclawtotem", // Changed to avoid Earth Shield collision
     "Purify Spirit": "spell_holy_purify",
     "Earth Shield": "spell_nature_skinofearth",
-    "Water Shield": "ability_shaman_watershield" // Verified exists
+    "Water Shield": "ability_shaman_watershield", // Verified exists
+
+    // Monk - Brewmaster
+    "Keg Smash": "inv_misc_food_draenor_rawrylakegg_brown", // Keg icon
+    "Breath of Fire": "ability_monk_breathoffire",
+    "Blackout Kick": "ability_monk_blackoutkick",
+    "Tiger Palm": "ability_monk_tigerpalm",
+    "Rising Sun Kick": "ability_monk_risingsunkick",
+    "Rushing Jade Wind": "ability_monk_rushingjadewind", // Guessing, if fails will fallback
+    "Spinning Crane Kick": "ability_monk_cranekick",
+    "Touch of Death": "ability_monk_touchofdeath",
+    "Exploding Keg": "ability_monk_explodingjadeblossom", // Best fit
+    "Weapons of Order": "inv_ability_monk_weaponsoforder",
+    "Bonedust Brew": "inv_misc_bone_01", // Fallback (Bone)
+    "Summon Black Ox Statue": "monk_stance_drunkenox", // Reuse Ox stance
+    "Provoke": "ability_monk_provoke",
+    "Detox": "spell_nature_removedisease", // Disease remove
+    "Fortifying Brew": "ability_monk_fortifyingale",
+    "Zen Meditation": "ability_monk_zenmeditation",
+    "Celestial Brew": "ability_monk_ironskinbrew", // Fallback
+    "Invoke Niuzao": "monk_stance_drunkenox", // Ox
+    "Purifying Brew": "ability_monk_chibrew", // Fallback
+    "Spear Hand Strike": "ability_monk_spearhand",
+
+    // Monk - Mistweaver
+    "Renewing Mist": "ability_monk_renewingmists",
+    "Enveloping Mist": "spell_monk_envelopingmist",
+    "Vivify": "ability_monk_vivify",
+    "Soothing Mist": "ability_monk_soothingmists", // Guessing
+    "Essence Font": "ability_monk_essencefont", // Verified
+    "Faeline Stomp": "spell_nature_earthquake", // Fallback (Stomp?) or finding better later
+    "Invoke Yu'lon": "monk_stance_wiseserpent", // Serpent
+    "Mana Tea": "monk_ability_cherrymanatea", // Verified
+    "Resuscitate": "spell_holy_resurrection", // Fallback
+    "Diffuse Magic": "spell_monk_diffusemagic",
+    "Life Cocoon": "ability_monk_chicocoon",
+    "Revival": "spell_monk_revival",
+    "Thunder Focus Tea": "ability_monk_thunderfocustea", // Verified
+
+    // Monk - Windwalker
+    "Fists of Fury": "monk_ability_fistoffury",
+    "Whirling Dragon Punch": "ability_monk_hurricanestrike", // Guessing
+    "Flying Serpent Kick": "ability_monk_flyingdragonkick", // Guessing
+    "Energizing Elixir": "inv_alchemy_elixir_02", // Fallback
+    "Fist of the White Tiger": "monk_stance_whitetiger",
+    "Serenity": "ability_monk_serenity", // Guessing
+    "Strike of the Windlord": "inv_sword_1h_artifactskywall_d_05", // Skywall artifact
+    "Disable": "ability_rogue_trip", // Verified
+    "Touch of Karma": "ability_monk_touchofkarma",
+    "Storm, Earth, Fire": "spell_shaman_stormearthfire", // Verified
+    "Invoke Xuen": "monk_stance_whitetiger"
 };
+

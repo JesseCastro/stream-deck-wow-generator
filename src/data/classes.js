@@ -411,6 +411,23 @@ const Classes = {
                     6: 'Spear Hand Strike',
                     7: '[Racial]',
                     8: 'Combat Pot'
+                },
+                rotation: {
+                    1: 'Keg Smash',
+                    2: 'Breath of Fire',
+                    3: 'Blackout Kick',
+                    4: 'Tiger Palm',
+                    5: 'Rising Sun Kick',
+                    6: 'Rushing Jade Wind',
+                    7: 'Spinning Crane Kick',
+                    8: 'Touch of Death',
+                    9: 'Exploding Keg',
+                    10: 'Weapons of Order',
+                    11: 'Bonedust Brew',
+                    12: 'Summon Black Ox Statue',
+                    13: 'Roll',
+                    14: 'Provoke',
+                    15: 'Detox'
                 }
             },
             Mistweaver: {
@@ -424,6 +441,23 @@ const Classes = {
                     6: 'Spear Hand Strike',
                     7: '[Racial]',
                     8: 'Combat Pot'
+                },
+                rotation: {
+                    1: 'Renewing Mist',
+                    2: 'Enveloping Mist',
+                    3: 'Vivify',
+                    4: 'Soothing Mist',
+                    5: 'Essence Font',
+                    6: 'Rising Sun Kick',
+                    7: 'Tiger Palm',
+                    8: 'Blackout Kick',
+                    9: 'Faeline Stomp',
+                    10: 'Spinning Crane Kick',
+                    11: 'Invoke Yu\'lon',
+                    12: 'Mana Tea',
+                    13: 'Roll',
+                    14: 'Detox',
+                    15: 'Resuscitate'
                 }
             },
             Windwalker: {
@@ -437,6 +471,23 @@ const Classes = {
                     6: 'Spear Hand Strike',
                     7: '[Racial]',
                     8: 'Combat Pot'
+                },
+                rotation: {
+                    1: 'Tiger Palm',
+                    2: 'Blackout Kick',
+                    3: 'Rising Sun Kick',
+                    4: 'Fists of Fury',
+                    5: 'Spinning Crane Kick',
+                    6: 'Whirling Dragon Punch',
+                    7: 'Touch of Death',
+                    8: 'Flying Serpent Kick',
+                    9: 'Energizing Elixir',
+                    10: 'Fist of the White Tiger',
+                    11: 'Serenity',
+                    12: 'Strike of the Windlord',
+                    13: 'Roll',
+                    14: 'Detox',
+                    15: 'Disable'
                 }
             }
         }
