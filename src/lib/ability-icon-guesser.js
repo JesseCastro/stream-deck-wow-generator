@@ -13,27 +13,27 @@ const COMPLETE_ICONS = require('../data/complete-ability-icons.js');
  * @returns {string|null} Resolved icon path or null
  */
 function guessAbilityIcon(abilityName, classId, iconManager) {
-    if (!abilityName || abilityName === '[Empty]' || abilityName === '[Racial]') {
-        return null;
-    }
-
-    // Static lookup
-    const iconFile = COMPLETE_ICONS[abilityName];
-    if (iconFile) {
-        return iconManager.resolveIcon(iconFile);
-    }
-
-    // Fallback: Try resolving the ability name directly via IconManager (which uses icon-aliases.js)
-    const resolved = iconManager.resolveIcon(abilityName);
-    if (resolved) {
-        return resolved;
-    }
-
-    console.warn(`[Icon Missing] No mapping for: ${abilityName}`);
+  if (!abilityName || abilityName === '[Empty]' || abilityName === '[Racial]') {
     return null;
+  }
+
+  // Static lookup
+  const iconFile = COMPLETE_ICONS[abilityName];
+  if (iconFile) {
+    return iconManager.resolveIcon(iconFile);
+  }
+
+  // Fallback: Try resolving the ability name directly via IconManager (which uses icon-aliases.js)
+  const resolved = iconManager.resolveIcon(abilityName);
+  if (resolved) {
+    return resolved;
+  }
+
+  console.warn(`[Icon Missing] No mapping for: ${abilityName}`);
+  return null;
 }
 
 module.exports = {
-    guessAbilityIcon,
-    ABILITY_ICON_OVERRIDES: COMPLETE_ICONS
+  guessAbilityIcon,
+  ABILITY_ICON_OVERRIDES: COMPLETE_ICONS
 };

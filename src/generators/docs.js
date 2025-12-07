@@ -6,7 +6,7 @@
  * @returns {string} File content
  */
 function GenerateDocs(classId, specId, raceId) {
-    return `
+  return `
 # Stream Deck Profile for ${classId} (${specId}) - ${raceId}
 
 ## Installation

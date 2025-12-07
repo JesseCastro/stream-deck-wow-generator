@@ -11,71 +11,72 @@ jest.mock('../../src/lib/keybind-manager');
 jest.mock('../../src/lib/icon-manager');
 
 describe('UniversalBarGenerator', () => {
-    let mockKeybindManager;
-    let mockIconManager;
+  let mockKeybindManager;
+  let mockIconManager;
 
-    beforeEach(() => {
-        mockKeybindManager = new KeybindManager();
-        mockIconManager = new IconManager();
+  beforeEach(() => {
+    mockKeybindManager = new KeybindManager();
+    mockIconManager = new IconManager();
 
-        // Setup default mocks
-        mockKeybindManager.getKey.mockImplementation((action) => {
-            if (action === 'World Map') return 'Shift+M';
-            if (action === 'Hearthstone') return 'F12';
-            return 'TEST_KEY';
-        });
-
-        mockIconManager.resolveIcon.mockImplementation((name) => {
-            return `/mock/path/${name}`;
-        });
+    // Setup default mocks
+    mockKeybindManager.getKey.mockImplementation((action) => {
+      if (action === 'World Map') return 'Shift+M';
+      if (action === 'Hearthstone') return 'F12';
+      return 'TEST_KEY';
     });
 
-    it('should generate exactly 8 actions', () => {
-        const bar = GenerateUniversalBar(mockKeybindManager, mockIconManager);
-        expect(bar).toHaveLength(8);
+    mockIconManager.resolveIcon.mockImplementation((name) => {
+      return `/mock/path/${name}`;
     });
+  });
 
-    it('should have correct actions in order', () => {
-        const bar = GenerateUniversalBar(mockKeybindManager, mockIconManager);
-        const actionNames = bar.map(a => a.name);
+  it('should generate exactly 8 actions', () => {
+    const bar = GenerateUniversalBar(mockKeybindManager, mockIconManager);
+    expect(bar).toHaveLength(8);
+  });
 
-        const expectedOrder = [
-            'Mount',
-            'World Map',
-            'Interact',
-            'Raid Markers',
-            'Reload UI',
-            'Screenshot',
-            'Health Potion',
-            'Hearthstone'
-        ];
+  it('should have correct actions in order', () => {
+    const bar = GenerateUniversalBar(mockKeybindManager, mockIconManager);
+    const actionNames = bar.map(a => a.name);
 
-        expect(actionNames).toEqual(expectedOrder);
-    });
+    const expectedOrder = [
+      'Mount',
+      'World Map',
+      'Interact',
+      'Open Bags',
+      'Autorun',
+      'Toggle Quest',
+      'Health Potion',
+      'Hearthstone'
+    ];
 
-    it('should assign keybinds using the manager', () => {
-        const bar = GenerateUniversalBar(mockKeybindManager, mockIconManager);
-        const mapAction = bar.find(a => a.name === 'World Map');
+    expect(actionNames).toEqual(expectedOrder);
+  });
 
-        expect(mapAction.settings.hotkey).toBe('Shift+M');
-        expect(mockKeybindManager.getKey).toHaveBeenCalledWith('World Map');
-    });
+  it('should assign keybinds using the manager', () => {
+    const bar = GenerateUniversalBar(mockKeybindManager, mockIconManager);
+    const mapAction = bar.find(a => a.name === 'World Map');
 
-    it('should resolve icons using the manager', () => {
-        const bar = GenerateUniversalBar(mockKeybindManager, mockIconManager);
-        const mountAction = bar.find(a => a.name === 'Mount');
+    expect(mapAction.settings.hotkey).toBe('Shift+M');
+    expect(mockKeybindManager.getKey).toHaveBeenCalledWith('World Map');
+  });
 
-        expect(mountAction.settings.icon).toBe('/mock/path/Mount');
-        expect(mockIconManager.resolveIcon).toHaveBeenCalledWith('Mount');
-    });
+  it('should resolve icons using the manager', () => {
+    const bar = GenerateUniversalBar(mockKeybindManager, mockIconManager);
+    const mountAction = bar.find(a => a.name === 'Mount');
 
-    it('should register default key if action is unknown to manager', () => {
-        // return null for 'Mount', forcing the generator to try to register 'M'
-        mockKeybindManager.getKey.mockReturnValue(null);
+    expect(mountAction.settings.icon).toBe('/mock/path/Mount');
+    expect(mockIconManager.resolveIcon).toHaveBeenCalledWith('Mount');
+  });
 
-        GenerateUniversalBar(mockKeybindManager, mockIconManager);
+  it('should register default key if action is unknown to manager', () => {
+    // return null for 'Mount', forcing the generator to try to register 'M'
+    mockKeybindManager.getKey.mockReturnValue(null);
 
-        expect(mockKeybindManager.registerKey).toHaveBeenCalledWith('Mount', 'M', true);
-        expect(mockKeybindManager.registerKey).toHaveBeenCalledWith('Reload UI', 'Ctrl+Shift+R', true);
-    });
+    GenerateUniversalBar(mockKeybindManager, mockIconManager);
+
+    expect(mockKeybindManager.registerKey).toHaveBeenCalledWith('Mount', 'M', true);
+    expect(mockKeybindManager.registerKey).toHaveBeenCalledWith('Open Bags', 'B', true);
+    expect(mockKeybindManager.registerKey).toHaveBeenCalledWith('Autorun', 'NUM_LOCK', true);
+  });
 });

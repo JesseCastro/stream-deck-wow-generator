@@ -12,66 +12,66 @@ const GenerateUniversalBar = require('./universal-bar');
  * @returns {Array<Object>} Array of 32 Action objects
  */
 function GenerateClassPage(classId, specId, raceId, keybindManager, iconManager) {
-    const classData = Classes[classId];
-    if (!classData) throw new Error(`Invalid Class: ${classId}`);
+  const classData = Classes[classId];
+  if (!classData) throw new Error(`Invalid Class: ${classId}`);
 
-    const specData = classData.specs[specId];
-    if (!specData) throw new Error(`Invalid Spec: ${specId} for Class: ${classId}`);
+  const specData = classData.specs[specId];
+  if (!specData) throw new Error(`Invalid Spec: ${specId} for Class: ${classId}`);
 
-    // Rows 1-2 (0-15)
-    // 0: Back
-    // 1-15: Rotation items
-    const rows12 = [];
+  // Rows 1-2 (0-15)
+  // 0: Back
+  // 1-15: Rotation items
+  const rows12 = [];
 
-    // Slot 0
-    rows12.push({ type: 'back', name: 'Back' });
+  // Slot 0
+  rows12.push({ type: 'back', name: 'Back' });
 
-    const rotationData = specData.rotation || {};
+  const rotationData = specData.rotation || {};
 
-    // Slots 1 to 15
-    for (let i = 1; i <= 15; i++) {
-        const abilityName = rotationData[i] || '[Empty]';
+  // Slots 1 to 15
+  for (let i = 1; i <= 15; i++) {
+    const abilityName = rotationData[i] || '[Empty]';
 
-        if (abilityName === '[Empty]') {
-            rows12.push({ type: 'empty' });
-        } else {
-            // It's a rotation ability
-            // Resolve Key
-            let key = keybindManager.getKey(abilityName);
-            if (!key) {
-                // Should we assign a new key for rotation abilities?
-                // Probably yes, they are critical.
-                key = keybindManager.assignKey(abilityName);
-            }
+    if (abilityName === '[Empty]') {
+      rows12.push({ type: 'empty' });
+    } else {
+      // It's a rotation ability
+      // Resolve Key
+      let key = keybindManager.getKey(abilityName);
+      if (!key) {
+        // Should we assign a new key for rotation abilities?
+        // Probably yes, they are critical.
+        key = keybindManager.assignKey(abilityName);
+      }
 
-            // Resolve Icon using smart guesser
-            const { guessAbilityIcon } = require('../lib/ability-icon-guesser');
-            const iconPath = guessAbilityIcon(abilityName, classId, iconManager) || '';
+      // Resolve Icon using smart guesser
+      const { guessAbilityIcon } = require('../lib/ability-icon-guesser');
+      const iconPath = guessAbilityIcon(abilityName, classId, iconManager) || '';
 
-            rows12.push({
-                name: abilityName,
-                type: 'hotkey',
-                settings: {
-                    hotkey: key,
-                    icon: iconPath
-                }
-            });
+      rows12.push({
+        name: abilityName,
+        type: 'hotkey',
+        settings: {
+          hotkey: key,
+          icon: iconPath
         }
+      });
     }
+  }
 
-    // Row 3 (16-23) - Panic Row
-    const panicRow = GeneratePanicRow(classId, specId, raceId, keybindManager, iconManager);
+  // Row 3 (16-23) - Panic Row
+  const panicRow = GeneratePanicRow(classId, specId, raceId, keybindManager, iconManager);
 
-    // Row 4 (24-31) - Universal Bar
-    const universalBar = GenerateUniversalBar(keybindManager, iconManager);
+  // Row 4 (24-31) - Universal Bar
+  const universalBar = GenerateUniversalBar(keybindManager, iconManager);
 
-    const allActions = [
-        ...rows12,
-        ...panicRow,
-        ...universalBar
-    ];
+  const allActions = [
+    ...rows12,
+    ...panicRow,
+    ...universalBar
+  ];
 
-    return allActions;
+  return allActions;
 }
 
 module.exports = GenerateClassPage;

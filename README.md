@@ -52,9 +52,16 @@ This project generates `.streamDeckProfile` files that provide a complete interf
 ### Usage
 Generate a profile for your character:
 ```bash
-# Example: Tauren Paladin (Protection)
+# Single Profile Example: Tauren Paladin (Protection)
 npm run generate -- --class "Paladin" --spec "Protection" --race "Tauren"
 ```
+
+### Mass Generation (Release Build)
+To generate all 900+ profile combinations for release:
+```bash
+node src/scripts/generate-release.js
+```
+Artifacts will be output to `Build/Release/` with a navigable structure.
 
 ---
 

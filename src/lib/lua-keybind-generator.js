@@ -9,94 +9,94 @@
  * @returns {string} WoW-compatible key string
  */
 function formatKeyForWow(key) {
-    if (!key) return null;
+  if (!key) return null;
 
-    // WoW uses specific format for modifiers
-    let parts = key.toUpperCase().split('+').map(p => p.trim());
+  // WoW uses specific format for modifiers
+  let parts = key.toUpperCase().split('+').map(p => p.trim());
 
-    // Map common keys to WoW format
-    const keyMap = {
-        'SPACE': 'SPACE',
-        'SPACEBAR': 'SPACE',
-        'NUM_LOCK': 'NUMLOCK',
-        'NUMLOCK': 'NUMLOCK',
-        'ESC': 'ESCAPE',
-        'ENTER': 'ENTER',
-        'PAGEUP': 'PAGEUP',
-        'PAGEDOWN': 'PAGEDOWN'
-    };
+  // Map common keys to WoW format
+  const keyMap = {
+    'SPACE': 'SPACE',
+    'SPACEBAR': 'SPACE',
+    'NUM_LOCK': 'NUMLOCK',
+    'NUMLOCK': 'NUMLOCK',
+    'ESC': 'ESCAPE',
+    'ENTER': 'ENTER',
+    'PAGEUP': 'PAGEUP',
+    'PAGEDOWN': 'PAGEDOWN'
+  };
 
-    // Get main key
-    let mainKey = parts[parts.length - 1];
-    mainKey = keyMap[mainKey] || mainKey;
+  // Get main key
+  let mainKey = parts[parts.length - 1];
+  mainKey = keyMap[mainKey] || mainKey;
 
-    // Build modifier prefix
-    let modifiers = parts.slice(0, -1);
-    let prefix = '';
-    if (modifiers.includes('SHIFT')) prefix += 'SHIFT-';
-    if (modifiers.includes('CTRL')) prefix += 'CTRL-';
-    if (modifiers.includes('ALT')) prefix += 'ALT-';
+  // Build modifier prefix
+  let modifiers = parts.slice(0, -1);
+  let prefix = '';
+  if (modifiers.includes('SHIFT')) prefix += 'SHIFT-';
+  if (modifiers.includes('CTRL')) prefix += 'CTRL-';
+  if (modifiers.includes('ALT')) prefix += 'ALT-';
 
-    return prefix + mainKey;
+  return prefix + mainKey;
 }
 
 /**
  * Map action names to WoW binding commands
  */
 const BINDING_MAP = {
-    // Movement - both WASD and Arrow keys
-    'Move Forward': 'MOVEFORWARD',
-    'Move Backward': 'MOVEBACKWARD',
-    'Turn Left': 'TURNLEFT',
-    'Turn Right': 'TURNRIGHT',
-    'Strafe Left': 'STRAFELEFT',
-    'Strafe Right': 'STRAFERIGHT',
-    'Jump': 'JUMP',
-    'Autorun': 'TOGGLEAUTORUN',
-    'Auto-Run': 'TOGGLEAUTORUN',
+  // Movement - both WASD and Arrow keys
+  'Move Forward': 'MOVEFORWARD',
+  'Move Backward': 'MOVEBACKWARD',
+  'Turn Left': 'TURNLEFT',
+  'Turn Right': 'TURNRIGHT',
+  'Strafe Left': 'STRAFELEFT',
+  'Strafe Right': 'STRAFERIGHT',
+  'Jump': 'JUMP',
+  'Autorun': 'TOGGLEAUTORUN',
+  'Auto-Run': 'TOGGLEAUTORUN',
 
-    // Targeting
-    'Target Nearest Enemy': 'TARGETNEARESTENEMY',
-    'Target Previous Enemy': 'TARGETPREVIOUSENEMY',
-    'Target Self': 'TARGETSELF',
-    'Focus Target': 'FOCUSTARGET',
-    'Clear Focus': 'CLEARFOCUS',
-    'Assist': 'ASSISTTARGET',
+  // Targeting
+  'Target Nearest Enemy': 'TARGETNEARESTENEMY',
+  'Target Previous Enemy': 'TARGETPREVIOUSENEMY',
+  'Target Self': 'TARGETSELF',
+  'Focus Target': 'FOCUSTARGET',
+  'Clear Focus': 'CLEARFOCUS',
+  'Assist': 'ASSISTTARGET',
 
-    // Interface
-    'World Map': 'TOGGLEWORLDMAP',
-    'Interact': 'INTERACTTARGET',
-    'Open Bags': 'OPENALLBAGS',
-    'Toggle Quest': 'TOGGLEQUESTLOG',
-    'Game Menu': 'TOGGLEGAMEMENU',
+  // Interface
+  'World Map': 'TOGGLEWORLDMAP',
+  'Interact': 'INTERACTTARGET',
+  'Open Bags': 'OPENALLBAGS',
+  'Toggle Quest': 'TOGGLEQUESTLOG',
+  'Game Menu': 'TOGGLEGAMEMENU',
 
-    // Camera
-    'Zoom In': 'CAMERAZOOMIN',
-    'Zoom Out': 'CAMERAZOOMOUT',
+  // Camera
+  'Zoom In': 'CAMERAZOOMIN',
+  'Zoom Out': 'CAMERAZOOMOUT',
 
-    // Mount
-    'Mount': 'CLICK CompanionsMicroButton:LeftButton'
+  // Mount
+  'Mount': 'CLICK CompanionsMicroButton:LeftButton'
 };
 
 // Macro definitions for specific Utilities actions
 const MACRO_MAP = {
-    'Reload UI': { body: '/reload', icon: 'inv_misc_questionmark' },
-    'Great Vault': { body: '/run LoadAddOn("Blizzard_WeeklyRewards"); WeeklyRewardsFrame:Show()', icon: 'inv_misc_questionmark' },
-    'Toggle Details': { body: '/details toggle', icon: 'inv_misc_questionmark' },
-    'Toggle Music': { body: '/run SetCVar("Sound_EnableMusic", 1 - GetCVar("Sound_EnableMusic"))', icon: 'inv_misc_drum_01' },
-    'Stuck': { body: '/run Stuck()', icon: 'spell_shadow_teleport' }
+  'Reload UI': { body: '/reload', icon: 'inv_misc_questionmark' },
+  'Great Vault': { body: '/run LoadAddOn("Blizzard_WeeklyRewards"); WeeklyRewardsFrame:Show()', icon: 'inv_misc_questionmark' },
+  'Toggle Details': { body: '/details toggle', icon: 'inv_misc_questionmark' },
+  'Toggle Music': { body: '/run SetCVar("Sound_EnableMusic", 1 - GetCVar("Sound_EnableMusic"))', icon: 'inv_misc_drum_01' },
+  'Stuck': { body: '/run Stuck()', icon: 'spell_shadow_teleport' }
 };
 
 // Additional Bindings for Utilities
 const ADDITIONAL_BINDINGS = {
-    'Screenshot': 'SCREENSHOT',
-    'Character Panel': 'TOGGLECHARACTER0',
-    'Collections': 'TOGGLECOLLECTIONS',
-    'Spellbook': 'TOGGLESPELLBOOK',
-    'LFG': 'TOGGLEGROUPFINDER',
-    'Dungeon Journal': 'TOGGLEENCOUNTERJOURNAL',
-    'Friends': 'TOGGLESOCIAL',
-    'Achievements': 'TOGGLEACHIEVEMENT'
+  'Screenshot': 'SCREENSHOT',
+  'Character Panel': 'TOGGLECHARACTER0',
+  'Collections': 'TOGGLECOLLECTIONS',
+  'Spellbook': 'TOGGLESPELLBOOK',
+  'LFG': 'TOGGLEGROUPFINDER',
+  'Dungeon Journal': 'TOGGLEENCOUNTERJOURNAL',
+  'Friends': 'TOGGLESOCIAL',
+  'Achievements': 'TOGGLEACHIEVEMENT'
 };
 
 /**
@@ -107,119 +107,119 @@ const ADDITIONAL_BINDINGS = {
  * @returns {string} Lua script content
  */
 function generateLuaKeybinds(keybindMap, classId, specId) {
-    const lines = [];
+  const lines = [];
 
-    lines.push('-- StreamDeck Keybind Installer');
-    lines.push(`-- Class: ${classId} ${specId}`);
-    lines.push('-- Generated by streamdeck-generator');
-    lines.push('--');
-    lines.push('-- INSTRUCTIONS:');
-    lines.push('-- 1. Copy this ENTIRE script');
-    lines.push('-- 2. Paste into WoW chat (/paste if you have paste addon)');
-    lines.push('--    OR create a macro and paste it there, then run the macro');
-    lines.push('-- 3. Type /reload to apply changes');
-    lines.push('--');
-    lines.push('-- WARNING: This will CLEAR ALL existing keybinds!');
-    lines.push('-- Make a backup first if you want to preserve current settings.');
-    lines.push('');
-    lines.push('function Install()');
-    lines.push('  print("StreamDeck: Clearing existing keybinds...")');
-    lines.push('  ');
-    lines.push('  -- Clear ALL existing bindings');
-    lines.push('  LoadBindings(1) -- Load current bindings');
-    lines.push('  for i = 1, GetNumBindings() do');
-    lines.push('    local command = select(1, GetBinding(i))');
-    lines.push('    if command then');
-    lines.push('      for j = 1, 2 do -- Clear both primary and secondary');
-    lines.push('        local key = select(j + 1, GetBinding(i))');
-    lines.push('        if key and key ~= "" then');
-    lines.push('          SetBinding(key, nil)');
-    lines.push('        end');
-    lines.push('      end');
-    lines.push('    end');
-    lines.push('  end');
-    lines.push('  ');
-    lines.push('  print("StreamDeck: Installing new keybinds...")');
-    lines.push('  ');
+  lines.push('-- StreamDeck Keybind Installer');
+  lines.push(`-- Class: ${classId} ${specId}`);
+  lines.push('-- Generated by streamdeck-generator');
+  lines.push('--');
+  lines.push('-- INSTRUCTIONS:');
+  lines.push('-- 1. Copy this ENTIRE script');
+  lines.push('-- 2. Paste into WoW chat (/paste if you have paste addon)');
+  lines.push('--    OR create a macro and paste it there, then run the macro');
+  lines.push('-- 3. Type /reload to apply changes');
+  lines.push('--');
+  lines.push('-- WARNING: This will CLEAR ALL existing keybinds!');
+  lines.push('-- Make a backup first if you want to preserve current settings.');
+  lines.push('');
+  lines.push('function Install()');
+  lines.push('  print("StreamDeck: Clearing existing keybinds...")');
+  lines.push('  ');
+  lines.push('  -- Clear ALL existing bindings');
+  lines.push('  LoadBindings(1) -- Load current bindings');
+  lines.push('  for i = 1, GetNumBindings() do');
+  lines.push('    local command = select(1, GetBinding(i))');
+  lines.push('    if command then');
+  lines.push('      for j = 1, 2 do -- Clear both primary and secondary');
+  lines.push('        local key = select(j + 1, GetBinding(i))');
+  lines.push('        if key and key ~= "" then');
+  lines.push('          SetBinding(key, nil)');
+  lines.push('        end');
+  lines.push('      end');
+  lines.push('    end');
+  lines.push('  end');
+  lines.push('  ');
+  lines.push('  print("StreamDeck: Installing new keybinds...")');
+  lines.push('  ');
 
-    lines.push('  -- Arrow Key Movement');
-    lines.push('  SetBinding("UP", "MOVEFORWARD")');
-    lines.push('  SetBinding("DOWN", "MOVEBACKWARD")');
-    lines.push('  SetBinding("LEFT", "TURNLEFT")');
-    lines.push('  SetBinding("RIGHT", "TURNRIGHT")');
-    lines.push('  ');
+  lines.push('  -- Arrow Key Movement');
+  lines.push('  SetBinding("UP", "MOVEFORWARD")');
+  lines.push('  SetBinding("DOWN", "MOVEBACKWARD")');
+  lines.push('  SetBinding("LEFT", "TURNLEFT")');
+  lines.push('  SetBinding("RIGHT", "TURNRIGHT")');
+  lines.push('  ');
 
-    let actionBarSlot = 1;
-    const actionBarAssignments = [];
+  let actionBarSlot = 1;
+  const actionBarAssignments = [];
 
-    // Sort bindings for consistent output
-    const entries = Object.entries(keybindMap).sort((a, b) => a[0].localeCompare(b[0]));
+  // Sort bindings for consistent output
+  const entries = Object.entries(keybindMap).sort((a, b) => a[0].localeCompare(b[0]));
 
-    for (const [actionName, key] of entries) {
-        const wowKey = formatKeyForWow(key);
-        if (!wowKey) continue;
+  for (const [actionName, key] of entries) {
+    const wowKey = formatKeyForWow(key);
+    if (!wowKey) continue;
 
-        let command = null;
+    let command = null;
 
-        // 1. Check Macros
-        if (MACRO_MAP[actionName]) {
-            const macro = MACRO_MAP[actionName];
-            // Escape quotes in body
-            const body = macro.body.replace(/"/g, '\\"');
-            lines.push(`  local mId = GetMacroIndexByName("${actionName}")`);
-            lines.push(`  if mId > 0 then DeleteMacro(mId) end`);
-            lines.push(`  CreateMacro("${actionName}", "${macro.icon}", "${body}", 1)`);
-            command = `MACRO ${actionName}`;
-        }
-        // 2. Check Standard Bindings
-        else if (BINDING_MAP[actionName]) {
-            command = BINDING_MAP[actionName];
-        }
-        // 3. Check Additional Bindings
-        else if (ADDITIONAL_BINDINGS[actionName]) {
-            command = ADDITIONAL_BINDINGS[actionName];
-        }
-        // 4. Fallback: Action Bar Slot
-        else {
-            command = `ACTIONBUTTON${actionBarSlot}`;
-            // Track for automated placement
-            actionBarAssignments.push({ slot: actionBarSlot, action: actionName, key: wowKey });
-            actionBarSlot++;
+    // 1. Check Macros
+    if (MACRO_MAP[actionName]) {
+      const macro = MACRO_MAP[actionName];
+      // Escape quotes in body
+      const body = macro.body.replace(/"/g, '\\"');
+      lines.push(`  local mId = GetMacroIndexByName("${actionName}")`);
+      lines.push('  if mId > 0 then DeleteMacro(mId) end');
+      lines.push(`  CreateMacro("${actionName}", "${macro.icon}", "${body}", 1)`);
+      command = `MACRO ${actionName}`;
+    }
+    // 2. Check Standard Bindings
+    else if (BINDING_MAP[actionName]) {
+      command = BINDING_MAP[actionName];
+    }
+    // 3. Check Additional Bindings
+    else if (ADDITIONAL_BINDINGS[actionName]) {
+      command = ADDITIONAL_BINDINGS[actionName];
+    }
+    // 4. Fallback: Action Bar Slot
+    else {
+      command = `ACTIONBUTTON${actionBarSlot}`;
+      // Track for automated placement
+      actionBarAssignments.push({ slot: actionBarSlot, action: actionName, key: wowKey });
+      actionBarSlot++;
 
-            // Wrap to next bar if needed (Bar 1-10 have 12 slots each)
-            if (actionBarSlot > 120) {
-                lines.push(`  -- WARNING: Ran out of action bar slots!`);
-            }
-        }
-
-        if (command) {
-            if (command.startsWith('MACRO ')) {
-                const macroName = command.replace('MACRO ', '');
-                lines.push(`  SetBindingMacro("${wowKey}", "${macroName}")`);
-            } else {
-                lines.push(`  SetBinding("${wowKey}", "${command}")`);
-            }
-        }
+      // Wrap to next bar if needed (Bar 1-10 have 12 slots each)
+      if (actionBarSlot > 120) {
+        lines.push('  -- WARNING: Ran out of action bar slots!');
+      }
     }
 
-    lines.push('  ');
-
-    // Add automated spell placement
-    if (typeof generateSpellPlacements === 'function') {
-        const placementCode = generateSpellPlacements(actionBarAssignments);
-        lines.push(placementCode);
+    if (command) {
+      if (command.startsWith('MACRO ')) {
+        const macroName = command.replace('MACRO ', '');
+        lines.push(`  SetBindingMacro("${wowKey}", "${macroName}")`);
+      } else {
+        lines.push(`  SetBinding("${wowKey}", "${command}")`);
+      }
     }
-    lines.push('  ');
-    lines.push('  print("StreamDeck: Keybinds installed successfully!")');
-    lines.push('  SaveBindings(2)');
-    lines.push('end');
-    lines.push('');
-    lines.push('Install()');
+  }
 
-    // Export assignment data
-    generateLuaKeybinds.lastActionBarAssignments = actionBarAssignments;
+  lines.push('  ');
 
-    return lines.join('\n');
+  // Add automated spell placement
+  if (typeof generateSpellPlacements === 'function') {
+    const placementCode = generateSpellPlacements(actionBarAssignments);
+    lines.push(placementCode);
+  }
+  lines.push('  ');
+  lines.push('  print("StreamDeck: Keybinds installed successfully!")');
+  lines.push('  SaveBindings(2)');
+  lines.push('end');
+  lines.push('');
+  lines.push('Install()');
+
+  // Export assignment data
+  generateLuaKeybinds.lastActionBarAssignments = actionBarAssignments;
+
+  return lines.join('\n');
 }
 
 
@@ -228,128 +228,128 @@ function generateLuaKeybinds(keybindMap, classId, specId) {
  * Generate README with action bar placement instructions
  */
 function generateActionBarGuide(actionBarAssignments, classId, specId) {
-    const lines = [];
+  const lines = [];
 
-    lines.push(`# StreamDeck Action Bar Setup Guide`);
-    lines.push(`## ${classId} ${specId}`);
-    lines.push('');
-    lines.push('After running the keybind installer, you need to place abilities on your action bars.');
-    lines.push('');
-    lines.push('## Automated Setup (RECOMMENDED):');
-    lines.push('The install_keybinds.lua script now includes AUTOMATIC action bar placement!');
-    lines.push('It will attempt to place all your abilities for you.');
-    lines.push('');
-    lines.push('## Manual Setup (if automation fails):');
-    lines.push('1. Run the install_keybinds.lua script in WoW');
-    lines.push('2. Type /reload');
-    lines.push('3. If some abilities didn\'t place automatically, drag them from spellbook:');
-    lines.push('');
-    lines.push('## Action Bar Slot Assignments:');
-    lines.push('');
-    lines.push('| Slot | Ability/Action | Key | Notes |');
-    lines.push('|------|----------------|-----|-------|');
+  lines.push('# StreamDeck Action Bar Setup Guide');
+  lines.push(`## ${classId} ${specId}`);
+  lines.push('');
+  lines.push('After running the keybind installer, you need to place abilities on your action bars.');
+  lines.push('');
+  lines.push('## Automated Setup (RECOMMENDED):');
+  lines.push('The install_keybinds.lua script now includes AUTOMATIC action bar placement!');
+  lines.push('It will attempt to place all your abilities for you.');
+  lines.push('');
+  lines.push('## Manual Setup (if automation fails):');
+  lines.push('1. Run the install_keybinds.lua script in WoW');
+  lines.push('2. Type /reload');
+  lines.push('3. If some abilities didn\'t place automatically, drag them from spellbook:');
+  lines.push('');
+  lines.push('## Action Bar Slot Assignments:');
+  lines.push('');
+  lines.push('| Slot | Ability/Action | Key | Notes |');
+  lines.push('|------|----------------|-----|-------|');
 
-    actionBarAssignments.forEach(({ slot, action, key }) => {
-        const bar = Math.floor((slot - 1) / 12) + 1;
-        const slotInBar = ((slot - 1) % 12) + 1;
-        lines.push(`| ${slot} (Bar ${bar}, Slot ${slotInBar}) | ${action} | ${key} | ${getAbilityNote(action)} |`);
-    });
+  actionBarAssignments.forEach(({ slot, action, key }) => {
+    const bar = Math.floor((slot - 1) / 12) + 1;
+    const slotInBar = ((slot - 1) % 12) + 1;
+    lines.push(`| ${slot} (Bar ${bar}, Slot ${slotInBar}) | ${action} | ${key} | ${getAbilityNote(action)} |`);
+  });
 
-    lines.push('');
-    lines.push('## Tips:');
-    lines.push('- The script will automatically place spells it can find');
-    lines.push('- For items (potions, mounts), you need to drag them manually');
-    lines.push('- Macros need to be created separately and placed manually');
-    lines.push('- Slots 1-12 are on Action Bar 1 (usually bottom bar)');
-    lines.push('- Slots 13-24 are on Action Bar 2 (usually right side bar)');
-    lines.push('- Enable all action bars: ESC → Interface → ActionBars');
-    lines.push('- If you don\'t have an ability yet (low level), script will skip it - no errors');
-    lines.push('');
+  lines.push('');
+  lines.push('## Tips:');
+  lines.push('- The script will automatically place spells it can find');
+  lines.push('- For items (potions, mounts), you need to drag them manually');
+  lines.push('- Macros need to be created separately and placed manually');
+  lines.push('- Slots 1-12 are on Action Bar 1 (usually bottom bar)');
+  lines.push('- Slots 13-24 are on Action Bar 2 (usually right side bar)');
+  lines.push('- Enable all action bars: ESC → Interface → ActionBars');
+  lines.push('- If you don\'t have an ability yet (low level), script will skip it - no errors');
+  lines.push('');
 
-    return lines.join('\n');
+  return lines.join('\n');
 }
 
 /**
  * Map ability names to spell IDs or spell names for WoW API
  */
 const SPELL_NAME_MAP = {
-    // Paladin abilities
-    'Divine Shield': 642,
-    'Lay on Hands': 633,
-    'Ardent Defender': 31850,
-    'Guardian of Ancient Kings': 86659,
-    'Word of Glory': 85673,
-    'Rebuke': 96231,
-    'Shield of Righteousness': 53600,
-    'Judgment': 20271,
-    'Hammer of Wrath': 24275,
-    "Avenger's Shield": 31935,
-    'Consecration': 26573,
-    'Hammer of the Righteous': 53595,
-    'Hand of Reckoning': 62124,
-    'Blinding Light': 115750,
-    'Hammer of Justice': 853,
-    'Cleanse Toxins': 213644,
-    'Blessing of Freedom': 1044,
-    'Blessing of Sacrifice': 6940
+  // Paladin abilities
+  'Divine Shield': 642,
+  'Lay on Hands': 633,
+  'Ardent Defender': 31850,
+  'Guardian of Ancient Kings': 86659,
+  'Word of Glory': 85673,
+  'Rebuke': 96231,
+  'Shield of Righteousness': 53600,
+  'Judgment': 20271,
+  'Hammer of Wrath': 24275,
+  'Avenger\'s Shield': 31935,
+  'Consecration': 26573,
+  'Hammer of the Righteous': 53595,
+  'Hand of Reckoning': 62124,
+  'Blinding Light': 115750,
+  'Hammer of Justice': 853,
+  'Cleanse Toxins': 213644,
+  'Blessing of Freedom': 1044,
+  'Blessing of Sacrifice': 6940
 };
 
 function getAbilityNote(action) {
-    if (action.includes('Divine Shield') || action.includes('Lay on Hands')) {
-        return 'Defensive cooldown';
-    } else if (action.includes('Shield of Righteousness') || action.includes('Judgment')) {
-        return 'Primary rotation';
-    } else if (action.includes('Potion') || action.includes('Pot')) {
-        return 'Use consumable (place manually)';
-    } else if (action.includes('Mount')) {
-        return 'Create macro or use item';
-    } else if (action.includes('Mark') || action.includes('Skull') || action.includes('Cross')) {
-        return 'Target marker macro needed';
-    }
-    return '';
+  if (action.includes('Divine Shield') || action.includes('Lay on Hands')) {
+    return 'Defensive cooldown';
+  } else if (action.includes('Shield of Righteousness') || action.includes('Judgment')) {
+    return 'Primary rotation';
+  } else if (action.includes('Potion') || action.includes('Pot')) {
+    return 'Use consumable (place manually)';
+  } else if (action.includes('Mount')) {
+    return 'Create macro or use item';
+  } else if (action.includes('Mark') || action.includes('Skull') || action.includes('Cross')) {
+    return 'Target marker macro needed';
+  }
+  return '';
 }
 
 /**
  * Generate spell placement code for Lua
  */
 function generateSpellPlacements(actionBarAssignments) {
-    const lines = [];
+  const lines = [];
 
-    lines.push('  -- Automated Action Bar Placement');
-    lines.push('  -- This will try to place spells automatically');
-    lines.push('  print("StreamDeck: Placing abilities on action bars...")');
-    lines.push('  local placed = 0');
-    lines.push('  local failed = 0');
-    lines.push('  ');
+  lines.push('  -- Automated Action Bar Placement');
+  lines.push('  -- This will try to place spells automatically');
+  lines.push('  print("StreamDeck: Placing abilities on action bars...")');
+  lines.push('  local placed = 0');
+  lines.push('  local failed = 0');
+  lines.push('  ');
 
-    actionBarAssignments.forEach(({ slot, action }) => {
-        const spellId = SPELL_NAME_MAP[action];
-        if (spellId) {
-            lines.push(`  -- ${action} → Slot ${slot}`);
-            lines.push(`  if IsPlayerSpell(${spellId}) then`);
-            lines.push(`    C_Spell.PickupSpell(${spellId})`);
-            lines.push(`    PlaceAction(${slot})`);
-            lines.push(`    ClearCursor()`);
-            lines.push(`    placed = placed + 1`);
-            lines.push(`  else`);
-            lines.push(`    -- Spell not learned yet, skip`);
-            lines.push(`    failed = failed + 1`);
-            lines.push(`  end`);
-        } else if (action.includes('Potion') || action.includes('Mount') || action.includes('Mark')) {
-            lines.push(`  -- ${action} → Slot ${slot} (needs manual placement - item/macro)`);
-            lines.push(` failed = failed + 1`);
-        }
-    });
+  actionBarAssignments.forEach(({ slot, action }) => {
+    const spellId = SPELL_NAME_MAP[action];
+    if (spellId) {
+      lines.push(`  -- ${action} → Slot ${slot}`);
+      lines.push(`  if IsPlayerSpell(${spellId}) then`);
+      lines.push(`    C_Spell.PickupSpell(${spellId})`);
+      lines.push(`    PlaceAction(${slot})`);
+      lines.push('    ClearCursor()');
+      lines.push('    placed = placed + 1');
+      lines.push('  else');
+      lines.push('    -- Spell not learned yet, skip');
+      lines.push('    failed = failed + 1');
+      lines.push('  end');
+    } else if (action.includes('Potion') || action.includes('Mount') || action.includes('Mark')) {
+      lines.push(`  -- ${action} → Slot ${slot} (needs manual placement - item/macro)`);
+      lines.push(' failed = failed + 1');
+    }
+  });
 
-    lines.push('  ');
-    lines.push('  print(string.format("StreamDeck: Placed %d abilities, %d need manual setup", placed, failed))');
+  lines.push('  ');
+  lines.push('  print(string.format("StreamDeck: Placed %d abilities, %d need manual setup", placed, failed))');
 
-    return lines.join('\n');
+  return lines.join('\n');
 }
 
 module.exports = {
-    generateLuaKeybinds,
-    formatKeyForWow,
-    generateActionBarGuide,
-    generateSpellPlacements
+  generateLuaKeybinds,
+  formatKeyForWow,
+  generateActionBarGuide,
+  generateSpellPlacements
 };

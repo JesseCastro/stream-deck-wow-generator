@@ -12,7 +12,7 @@
  * @returns {string} Markdown content
  */
 function GenerateMatrix(profiles) {
-    let md = `# Profile Navigation Matrix
+  let md = `# Profile Navigation Matrix
 
 Use strict navigation to find your exact profile below.
 
@@ -20,18 +20,18 @@ Use strict navigation to find your exact profile below.
 |-------|------|------|---------------|
 `;
 
-    // Sort by Class -> Spec -> Race
-    const sorted = [...profiles].sort((a, b) => {
-        if (a.class !== b.class) return a.class.localeCompare(b.class);
-        if (a.spec !== b.spec) return a.spec.localeCompare(b.spec);
-        return a.race.localeCompare(b.race);
-    });
+  // Sort by Class -> Spec -> Race
+  const sorted = [...profiles].sort((a, b) => {
+    if (a.class !== b.class) return a.class.localeCompare(b.class);
+    if (a.spec !== b.spec) return a.spec.localeCompare(b.spec);
+    return a.race.localeCompare(b.race);
+  });
 
-    sorted.forEach(p => {
-        md += `| ${p.class} | ${p.spec} | ${p.race} | [Download](${p.file}) |\n`;
-    });
+  sorted.forEach(p => {
+    md += `| ${p.class} | ${p.spec} | ${p.race} | [Download](${p.file}) |\n`;
+  });
 
-    return md;
+  return md;
 }
 
 module.exports = GenerateMatrix;
