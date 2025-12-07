@@ -36,15 +36,17 @@ function verifyBuild() {
     let totalActions = 0;
     let missingIcons = 0;
     let errors = [];
+    const usedImagesMap = {}; // image -> Set(titles)
 
     manifests.forEach(manifestPath => {
+        const profilePath = path.dirname(manifestPath);
         const content = fs.readFileSync(manifestPath, 'utf8');
-        const data = JSON.parse(content);
-        const profilename = data.Name || 'Unknown';
+        const manifest = JSON.parse(content);
+        const profilename = manifest.Name || 'Unknown Profile';
 
         // Check Controllers
-        if (data.Controllers) {
-            data.Controllers.forEach(controller => {
+        if (manifest.Controllers) {
+            manifest.Controllers.forEach(controller => {
                 if (controller.Actions) {
                     Object.entries(controller.Actions).forEach(([coord, action]) => {
                         totalActions++;
@@ -53,13 +55,14 @@ function verifyBuild() {
 
                         const title = state.Title || 'Untitled';
                         const image = state.Image;
+                        const imageName = image ? path.basename(image, path.extname(image)) : null;
 
                         if (!image || image === '' || image === 'Images/') {
                             missingIcons++;
                             errors.push(`[${profilename}] Slot ${coord} "${title}": Missing Image`);
                         } else {
                             // Check if image file actually exists
-                            const imagePath = path.join(path.dirname(manifestPath), image);
+                            const imagePath = path.join(profilePath, image);
                             if (!fs.existsSync(imagePath)) {
                                 missingIcons++;
                                 errors.push(`[${profilename}] Slot ${coord} "${title}": Image file missing (${image})`);
@@ -69,6 +72,14 @@ function verifyBuild() {
                                     missingIcons++;
                                     errors.push(`[${profilename}] Slot ${coord} "${title}": Image file is empty (0 bytes) (${image})`);
                                 }
+
+                                // Check for collisions (systemic issue fix)
+                                if (imageName && imageName !== 'back' && title && title.length > 0 && !['Hearthstone', 'Combat Pot', 'Health Potion', 'Auto Run', 'Interact', 'Back'].includes(title)) {
+                                    if (!usedImagesMap[imageName]) {
+                                        usedImagesMap[imageName] = new Set();
+                                    }
+                                    usedImagesMap[imageName].add(title);
+                                }
                             }
                         }
                     });
@@ -76,6 +87,21 @@ function verifyBuild() {
             });
         }
     });
+
+    // Report Collisions
+    console.log('\nChecking for Suspect Collisions...');
+    let collisionCount = 0;
+    for (const [image, titles] of Object.entries(usedImagesMap)) {
+        if (titles.size > 1) {
+            console.warn(`\u001b[33m[Warning] Icon "${image}" is used by multiple distinct abilities: ${Array.from(titles).join(', ')}\u001b[0m`);
+            collisionCount++;
+        }
+    }
+    if (collisionCount === 0) {
+        console.log('No suspect collisions found.');
+    } else {
+        console.log(`Found ${collisionCount} potential icon collisions.`);
+    }
 
     console.log(`Checked ${totalActions} actions.`);
     if (missingIcons > 0) {

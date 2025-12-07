@@ -552,8 +552,8 @@ module.exports = {
     "Healing Rain": "sha_spell_fire_bluerainoffire", // Fallback (Blue Rain)
     "Cloudburst Totem": "spell_nature_invisibilitytotem", // Fallback (Water Totem)
     "Mana Tide Totem": "spell_frost_summonwaterelemental",
-    "Earthen Wall Totem": "spell_nature_skinofearth",
-    "Purify Spirit": "spell_holy_purify", // Verified exists
+    "Earthen Wall Totem": "spell_nature_stoneclawtotem", // Changed to avoid Earth Shield collision
+    "Purify Spirit": "spell_holy_purify",
     "Earth Shield": "spell_nature_skinofearth",
     "Water Shield": "ability_shaman_watershield" // Verified exists
 };
