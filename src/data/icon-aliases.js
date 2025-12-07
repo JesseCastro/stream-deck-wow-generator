@@ -17,8 +17,11 @@ module.exports = {
     "Consumes": "inv_potion_93", // Matches Consumes folder
 
     // Interface / General Actions
-    "Nameplates": "inv_helmet_106", // CONFIRMED WORKING FILE
-    "Frnd Plt": "spell_holy_powerwordshield",
+    "Group": "inv_misc_grouplooking", // Distinct from Character Panel
+    "Character Panel": "inv_helmet_06",
+    "Nameplates": "inv_helmet_145a", // Distinct Helm for Enemy Plates
+    "Frnd Plt": "inv_helmet_118", // Distinct Helm for Friend Plates
+    "Social": "inv_misc_groupneedmore",
     "Zoom In": "inv_misc_spyglass_03", // Changed to 03 (02 failed)
     "Zoom Out": "inv_misc_spyglass_01", // Use same Spyglass 01 as confirmed working
     "Tgl UI": "inv_misc_spyglass_02",
@@ -26,7 +29,9 @@ module.exports = {
     "Leave": "ability_venthyr_doorofshadows",
     "Pet Atk": "ability_ghoulfrenzy",
     "Follow": "ability_hunter_mastermarksman",
+    "Report AFK": "inv_misc_note_02",
     "Report": "inv_misc_note_02",
+    "Toggle Details": "inv_misc_note_02",
     "World Map": "inv_misc_map02",
     "Map": "inv_misc_map02",
     "Hearthstone": "inv_misc_rune_06",
@@ -599,12 +604,21 @@ module.exports = {
     "Whirling Dragon Punch": "ability_monk_hurricanestrike", // Guessing
     "Flying Serpent Kick": "ability_monk_flyingdragonkick", // Guessing
     "Energizing Elixir": "inv_alchemy_elixir_02", // Fallback
-    "Fist of the White Tiger": "monk_stance_whitetiger",
+    "Fist of the White Tiger": "inv_fistofthewhitetiger", // Verified
     "Serenity": "ability_monk_serenity", // Guessing
     "Strike of the Windlord": "inv_sword_1h_artifactskywall_d_05", // Skywall artifact
-    "Disable": "ability_rogue_trip", // Verified
+    "Disable": "ability_rogue_trip",
     "Touch of Karma": "ability_monk_touchofkarma",
     "Storm, Earth, Fire": "spell_shaman_stormearthfire", // Verified
-    "Invoke Xuen": "monk_stance_whitetiger"
-};
+    "Invoke Xuen": "monk_stance_whitetiger",
 
+    // Paladin Fixes
+    "Judgment": "spell_holy_righteousfury", // Unique icon
+    "Hammer of Wrath": "spell_paladin_hammerofwrath", // Unique icon
+    "Shield of Righteousness": "spell_holy_sealofrighteousness", // Verified existing icon
+    "Templar's Verdict": "spell_paladin_templarsverdict",
+    "Divine Storm": "spell_holy_divinestorm",
+    "Wake of Ashes": "inv_sword_2h_artifactashbringer_d_01", // Ashbringer icon for Wake of Ashes
+    "Hand of Hindrance": "spell_holy_sealofwisdom", // Fallback if missing
+    "Blade of Justice": "ability_paladin_bladeofjustice"
+};

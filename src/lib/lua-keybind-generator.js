@@ -222,11 +222,7 @@ function generateLuaKeybinds(keybindMap, classId, specId) {
     return lines.join('\n');
 }
 
-// Forward declare - will be defined later
-function generateSpellPlacements(actionBarAssignments) {
-    // Placeholder - real implementation below
-    return '';
-}
+
 
 /**
  * Generate README with action bar placement instructions
