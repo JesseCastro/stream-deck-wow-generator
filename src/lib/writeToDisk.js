@@ -14,11 +14,12 @@ const { topLevelManifest } = require('./profile');
  * @param {Object} profiles.mainProfile
  * @param {Object[]} profiles.additionalProfiles
  * @param {Object} [options]
+ * @param {string} [options.outputDir] - Custom output directory (default: ./Build)
  * @param {Object.<string, Object.<string, string>>} [options.images]
  * @returns {Promise<string>} Path to created file
  */
 async function writeToDisk({ mainProfile, additionalProfiles }, options = {}) {
-  const { images = {} } = options;
+  const { images = {}, outputDir } = options;
   const zip = new JsZip();
   const rootDir = zip.folder(`${mainProfile.uuid}.sdProfile`);
 
@@ -51,12 +52,12 @@ async function writeToDisk({ mainProfile, additionalProfiles }, options = {}) {
     }
   }
 
-  // Ensure Build directory exists
+  // Use custom outputDir or default to Build directory
   const fs = require('fs');
   const path = require('path');
-  const buildDir = path.join(process.cwd(), 'Build');
+  const buildDir = outputDir || path.join(process.cwd(), 'Build');
   if (!fs.existsSync(buildDir)) {
-    fs.mkdirSync(buildDir);
+    fs.mkdirSync(buildDir, { recursive: true });
   }
 
   const filename = path.join(buildDir, `${mainProfile.name}.streamDeckProfile`);
