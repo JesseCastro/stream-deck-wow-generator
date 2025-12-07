@@ -44,8 +44,9 @@ function GenerateClassPage(classId, specId, raceId, keybindManager, iconManager)
                 key = keybindManager.assignKey(abilityName);
             }
 
-            // Resolve Icon
-            const iconPath = iconManager.resolveIcon(abilityName) || '';
+            // Resolve Icon using smart guesser
+            const { guessAbilityIcon } = require('../lib/ability-icon-guesser');
+            const iconPath = guessAbilityIcon(abilityName, classId, iconManager) || '';
 
             rows12.push({
                 name: abilityName,

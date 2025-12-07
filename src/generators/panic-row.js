@@ -32,23 +32,20 @@ function GeneratePanicRow(classId, specId, raceId, keybindManager, iconManager) 
             abilityName = raceData.racial;
         }
 
-        // Handling placeholders
-        if (abilityName === '[No Interrupt]') {
-            actions.push({
-                name: '[No Interrupt]',
-                type: 'empty', // or 'noop' but 'empty' usually implies transparent/unclickable
-                settings: { icon: '' }
-            });
-            continue;
+        // Handling placeholders - Fill with 'Interact' or generic utility
+        if (abilityName === '[No Interrupt]' || abilityName === '[Empty]') {
+            abilityName = 'Interact'; // Fallback to Interact
         }
 
-        if (abilityName === '[Empty]') {
-            actions.push({
-                name: 'Empty',
-                type: 'empty',
-                settings: { icon: '' }
-            });
-            continue;
+        // Fix: Force Interact to use 'F' or pre-registered key if possible
+        if (abilityName === 'Interact') {
+            // Let Keybind manager handle it, but Universal Bar registers 'F'.
+            // We can assume F? Or let it resolve.
+            // If we assignKey() here, it might be 'V'.
+            // We should try to use 'F' if not set.
+            if (!keybindManager.getKey('Interact')) {
+                keybindManager.registerKey('Interact', 'F', true);
+            }
         }
 
         // Logic for standard ability

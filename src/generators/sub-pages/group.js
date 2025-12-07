@@ -14,33 +14,37 @@ function GenerateGroupPage(classId, specId, raceId, keybindManager, iconManager)
     // Row 1 (0-7)
     const row1 = [
         { type: 'back', name: 'Back' }, // 0
-        { name: 'Skull', type: 'macro', settings: { macro: '/tm 8', icon: 'Skull' } },
-        { name: 'Cross', type: 'macro', settings: { macro: '/tm 7', icon: 'Cross' } },
-        { name: 'Square', type: 'macro', settings: { macro: '/tm 6', icon: 'Square' } },
-        { name: 'Moon', type: 'macro', settings: { macro: '/tm 5', icon: 'Moon' } },
-        { name: 'Triangle', type: 'macro', settings: { macro: '/tm 4', icon: 'Triangle' } },
-        { name: 'Diamond', type: 'macro', settings: { macro: '/tm 3', icon: 'Diamond' } },
-        { name: 'Circle', type: 'macro', settings: { macro: '/tm 2', icon: 'Circle' } }
+        { name: 'Skull', type: 'hotkey' },
+        { name: 'Cross', type: 'hotkey' },
+        { name: 'Square', type: 'hotkey' },
+        { name: 'Moon', type: 'hotkey' },
+        { name: 'Triangle', type: 'hotkey' },
+        { name: 'Diamond', type: 'hotkey' },
+        { name: 'Circle', type: 'hotkey' }
     ];
 
     // Row 2 (8-15)
     // 8: Star, 9: Ready, 10: Pull, 11: Focus, 12: Clear, 13: Assist, 14: Empty, 15: Empty
     const row2 = [
-        { name: 'Star', type: 'macro', settings: { macro: '/tm 1', icon: 'Star' } },
-        { name: 'Ready Check', type: 'macro', settings: { macro: '/readycheck', icon: 'CheckMap' } }, // CheckMap or similar
-        { name: 'Pull Timer', type: 'macro', settings: { macro: '/pull 10', icon: 'Clock' } },
-        { name: 'Focus Target', type: 'macro', settings: { macro: '/focus', icon: 'Focus' } },
-        { name: 'Clear Focus', type: 'macro', settings: { macro: '/clearfocus', icon: 'ClearFocus' } },
-        { name: 'Assist', type: 'macro', settings: { macro: '/assist', icon: 'Assist' } },
+        { name: 'Star', type: 'hotkey' },
+        { name: 'Ready Check', type: 'hotkey' },
+        { name: 'Pull Timer', type: 'hotkey' },
+        { name: 'Focus Target', type: 'hotkey' },
+        { name: 'Clear Focus', type: 'hotkey' },
+        { name: 'Assist', type: 'hotkey' },
         { type: 'empty' },
         { type: 'empty' }
     ];
 
     // Row 3 (16-23) - Panic Row
+    console.log('GroupPage: Calling PanicRow...');
     const panicRow = GeneratePanicRow(classId, specId, raceId, keybindManager, iconManager);
+    console.log('GroupPage: PanicRow done');
 
     // Row 4 (24-31) - Universal Bar
+    console.log('GroupPage: Calling UniversalBar...');
     const universalBar = GenerateUniversalBar(keybindManager, iconManager);
+    console.log('GroupPage: UniversalBar done');
 
     const allActions = [
         ...row1,
@@ -55,28 +59,42 @@ function GenerateGroupPage(classId, specId, raceId, keybindManager, iconManager)
     // The requirement says "Includes 8 Raid Markers... verify correct icon paths".
     // So we should try to resolve them.
 
-    return allActions.map(item => {
-        // If it was already processed (panic/universal), skip logic?
-        // Actually, those funcs returned fully formed objects (Simple style).
-        // But for our rows 1-2, we need to populate.
-
-        // Check if item has icon path? PanicRow items do.
-        // row1 and row2 items have 'settings: { icon: string }' but it's just a name for now.
-        // We should resolve it.
-
-        if (item.settings && item.settings.icon && !item.settings.icon.includes('/')) {
-            const resolved = iconManager.resolveIcon(item.settings.icon);
-            if (resolved) item.settings.icon = resolved;
-            // If not found, keep name or empty?
+    console.log('GroupPage: Starting icon resolution and key assignment loop for', allActions.length, 'items');
+    const result = allActions.map((item, idx) => {
+        // Skip if empty or back button
+        if (!item || item.type === 'empty' || item.type === 'back') {
+            return item;
         }
 
-        // Also if item is 'macro', we might not need keybind manager since it's a macro action?
-        // But we might want a keybind for it if the user wants?
-        // Usually Sub-page actions are just "Click" (Stream Deck Text/Macro). 
-        // We don't need a WoW Bind for "/tm 8". The Stream Deck types it.
+        // 1. Ensure Keybind exists
+        // If it's a hotkey type but has no specific key assigned in settings, we need to get/assign one.
+        if (item.type === 'hotkey' && (!item.settings || !item.settings.hotkey)) {
+            let key = keybindManager.getKey(item.name);
+            if (!key) {
+                key = keybindManager.assignKey(item.name);
+            }
+            if (!item.settings) item.settings = {};
+            item.settings.hotkey = key;
+        }
+
+        // 2. Icon Resolution
+        // Skip if no settings or already resolved (contains /)
+        if (!item.settings || !item.settings.icon) {
+            return item;
+        }
+
+        // Skip if already an absolute path
+        if (item.settings.icon.includes('/')) {
+            return item;
+        }
+
+        const resolved = iconManager.resolveIcon(item.settings.icon);
+        if (resolved) item.settings.icon = resolved;
 
         return item;
     });
+    console.log('GroupPage: Processing complete');
+    return result;
 }
 
 module.exports = GenerateGroupPage;

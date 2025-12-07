@@ -15,23 +15,23 @@ function GenerateProfessionsPage(classId, specId, raceId, keybindManager, iconMa
     // 0: Back, 1: Prof1, 2: Prof2, 3: Cooking, 4: Fishing, 5: Arch, 6: Empty, 7: Empty
     const row1 = [
         { type: 'back', name: 'Back' },
-        { name: 'Profession 1', type: 'macro', settings: { macro: '/cast [btn:1] Profession 1', icon: 'Profession1' } }, // Placeholder
-        { name: 'Profession 2', type: 'macro', settings: { macro: '/cast [btn:1] Profession 2', icon: 'Profession2' } },
-        { name: 'Cooking', type: 'macro', settings: { macro: '/cast Cooking', icon: 'Cooking' } },
-        { name: 'Fishing', type: 'macro', settings: { macro: '/cast Fishing', icon: 'Fishing' } },
-        { name: 'Archaeology', type: 'macro', settings: { macro: '/cast Archaeology', icon: 'Archaeology' } },
-        { type: 'empty' },
-        { type: 'empty' }
+        { name: 'Profession 1', type: 'hotkey', settings: { icon: 'Profession1' } },
+        { name: 'Profession 2', type: 'hotkey', settings: { icon: 'Profession2' } },
+        { name: 'Cooking', type: 'hotkey', settings: { icon: 'Cooking' } },
+        { name: 'Fishing', type: 'hotkey', settings: { icon: 'Fishing' } },
+        { name: 'Archaeology', type: 'hotkey', settings: { icon: 'Archaeology' } },
+        { name: 'Open Bags', type: 'hotkey', settings: { icon: 'Open Bags' } },
+        { type: 'empty' } // Removed Hearthstone as requested
     ];
 
     // Row 2 (8-15)
     // 8: Campfire, 9: Fishing Pole?, 10: Survey, 11: Disenchant, 12: Milling, 13: Prospecting, 14, 15
     const row2 = [
-        { name: 'Campfire', type: 'macro', settings: { macro: '/cast Basic Campfire', icon: 'Fire' } },
-        { name: 'Survey', type: 'macro', settings: { macro: '/cast Survey', icon: 'Survey' } },
-        { name: 'Disenchant', type: 'macro', settings: { macro: '/cast Disenchant', icon: 'Disenchant' } },
-        { name: 'Milling', type: 'macro', settings: { macro: '/cast Milling', icon: 'Milling' } },
-        { name: 'Prospecting', type: 'macro', settings: { macro: '/cast Prospecting', icon: 'Prospecting' } },
+        { name: 'Campfire', type: 'hotkey', settings: { icon: 'Fire' } },
+        { name: 'Survey', type: 'hotkey', settings: { icon: 'Survey' } },
+        { name: 'Disenchant', type: 'hotkey', settings: { icon: 'Disenchant' } },
+        { name: 'Milling', type: 'hotkey', settings: { icon: 'Milling' } },
+        { name: 'Prospecting', type: 'hotkey', settings: { icon: 'Prospecting' } },
         { type: 'empty' },
         { type: 'empty' },
         { type: 'empty' }

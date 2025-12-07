@@ -15,25 +15,27 @@ function GenerateConsumablesPage(classId, specId, raceId, keybindManager, iconMa
     // 0: Back, 1: Eat, 2: Drink, 3: Flask, 4: Rune, 5: Oil/Stone, 6: Healthstone/Pot, 7: Empty
     const row1 = [
         { type: 'back', name: 'Back' },
-        { name: 'Food', type: 'macro', settings: { macro: '/use [nomod] Food Item', icon: 'Food' } },
-        { name: 'Drink', type: 'macro', settings: { macro: '/use [nomod] Drink Item', icon: 'Water' } },
-        { name: 'Flask', type: 'hotkey', settings: { icon: 'Flask' } }, // Bind to key
-        { name: 'Rune', type: 'hotkey', settings: { icon: 'Rune' } },
-        { name: 'Weapon Oil', type: 'hotkey', isOptional: true, settings: { icon: 'Oil' } },
-        { name: 'Healthstone', type: 'macro', settings: { macro: '/use Healthstone', icon: 'Healthstone' } },
+        { name: 'Food', type: 'hotkey' },
+        { name: 'Drink', type: 'hotkey' },
+        { name: 'Flask', type: 'hotkey' },
+        { name: 'Rune', type: 'hotkey' },
+        { name: 'Weapon Oil', type: 'hotkey' },
+        { name: 'Healthstone', type: 'hotkey' },
         { type: 'empty' }
     ];
 
     // Row 2 (8-15)
     // 8: Invis, 9: Speed, 10: Glider, 11: Drums, Rest: Empty
+    // Row 2 (8-15)
+    // 8: Invis, 9: Speed, 10: Glider, 11: Drums, Rest: Empty
     const row2 = [
-        { name: 'Invis Potion', type: 'hotkey', settings: { icon: 'InvisPot' } },
-        { name: 'Speed Potion', type: 'hotkey', settings: { icon: 'SpeedPot' } },
-        { name: 'Glider', type: 'macro', settings: { macro: '/use Goblin Glider Kit', icon: 'Glider' } },
-        { name: 'Drums', type: 'macro', settings: { macro: '/use Drums', icon: 'Drums' } },
-        { type: 'empty' },
-        { type: 'empty' },
-        { type: 'empty' },
+        { name: 'Invis Potion', type: 'hotkey' },
+        { name: 'Speed Potion', type: 'hotkey' },
+        { name: 'Glider', type: 'hotkey' },
+        { name: 'Drums', type: 'hotkey' },
+        { name: 'Combat Pot', type: 'hotkey' }, // Fill
+        { name: 'Health Potion', type: 'hotkey' }, // Fill
+        { name: 'Bandage', type: 'hotkey' }, // Fill or placeholder
         { type: 'empty' }
     ];
 
@@ -50,34 +52,26 @@ function GenerateConsumablesPage(classId, specId, raceId, keybindManager, iconMa
         ...universalBar
     ];
 
-    return allActions.map(item => {
+    console.log('ConsumablesPage: Starting processing loop');
+    return allActions.map((item) => {
+        if (!item || item.type === 'empty' || item.type === 'back') return item;
+
+        // 1. Ensure Keybind
+        if (item.type === 'hotkey' && (!item.settings || !item.settings.hotkey)) {
+            let key = keybindManager.getKey(item.name);
+            if (!key) key = keybindManager.assignKey(item.name);
+            if (!item.settings) item.settings = {};
+            item.settings.hotkey = key;
+        }
+
+        // 2. Icon Resolution
         if (item.settings && item.settings.icon && !item.settings.icon.includes('/')) {
             const resolved = iconManager.resolveIcon(item.settings.icon);
             if (resolved) item.settings.icon = resolved;
         }
-
-        if (item.type === 'hotkey') {
-            let key = keybindManager.getKey(item.name);
-            if (!key && item.defaultKey) {
-                key = item.defaultKey;
-                if (typeof keybindManager.registerKey === 'function') {
-                    keybindManager.registerKey(item.name, key, true);
-                }
-                if (!item.settings) item.settings = {};
-                item.settings.hotkey = key;
-            } else if (!key) {
-                // Try to assign new key for consumable hotkeys
-                key = keybindManager.assignKey(item.name);
-                if (!item.settings) item.settings = {};
-                item.settings.hotkey = key;
-            } else {
-                if (!item.settings) item.settings = {};
-                item.settings.hotkey = key;
-            }
-        }
-
         return item;
     });
 }
 
 module.exports = GenerateConsumablesPage;
+// End of file

@@ -1,0 +1,1042 @@
+     1	const Classes = {
+     2	    DeathKnight: {
+     3	        name: 'Death Knight',
+     4	        color: '#C41F3B',
+     5	        specs: {
+     6	            Blood: {
+     7	                name: 'Blood',
+     8	                panicRow: {
+     9	                    1: 'Anti-Magic Shell',
+    10	                    2: 'Icebound Fortitude',
+    11	                    3: 'Vampiric Blood',
+    12	                    4: 'Dancing Rune Weapon',
+    13	                    5: 'Death Strike',
+    14	                    6: 'Mind Freeze',
+    15	                    7: '[Racial]',
+    16	                    8: 'Combat Pot'
+    17	                }
+    18	            },
+    19	            Frost: {
+    20	                name: 'Frost',
+    21	                panicRow: {
+    22	                    1: 'Anti-Magic Shell',
+    23	                    2: 'Icebound Fortitude',
+    24	                    3: 'Death Strike',
+    25	                    4: 'Pillar of Frost',
+    26	                    5: 'Empower Rune Weapon',
+    27	                    6: 'Mind Freeze',
+    28	                    7: '[Racial]',
+    29	                    8: 'Combat Pot'
+    30	                }
+    31	            },
+    32	            Unholy: {
+    33	                name: 'Unholy',
+    34	                panicRow: {
+    35	                    1: 'Anti-Magic Shell',
+    36	                    2: 'Icebound Fortitude',
+    37	                    3: 'Death Strike',
+    38	                    4: 'Dark Transformation',
+    39	                    5: 'Summon Gargoyle',
+    40	                    6: 'Mind Freeze',
+    41	                    7: '[Racial]',
+    42	                    8: 'Combat Pot'
+    43	                }
+    44	            }
+    45	        }
+    46	    },
+    47	    DemonHunter: {
+    48	        name: 'Demon Hunter',
+    49	        color: '#A330C9',
+    50	        specs: {
+    51	            Havoc: {
+    52	                name: 'Havoc',
+    53	                panicRow: {
+    54	                    1: 'Blur',
+    55	                    2: 'Netherwalk',
+    56	                    3: 'Darkness',
+    57	                    4: 'Metamorphosis',
+    58	                    5: 'Chaos Nova',
+    59	                    6: 'Disrupt',
+    60	                    7: '[Racial]',
+    61	                    8: 'Combat Pot'
+    62	                }
+    63	            },
+    64	            Vengeance: {
+    65	                name: 'Vengeance',
+    66	                panicRow: {
+    67	                    1: 'Demon Spikes',
+    68	                    2: 'Fiery Brand',
+    69	                    3: 'Metamorphosis',
+    70	                    4: 'Soul Cleave',
+    71	                    5: 'Fel Devastation',
+    72	                    6: 'Disrupt',
+    73	                    7: '[Racial]',
+    74	                    8: 'Combat Pot'
+    75	                }
+    76	            }
+    77	        }
+    78	    },
+    79	    Druid: {
+    80	        name: 'Druid',
+    81	        color: '#FF7D0A',
+    82	        specs: {
+    83	            Balance: {
+    84	                name: 'Balance',
+    85	                panicRow: {
+    86	                    1: 'Barkskin',
+    87	                    2: 'Survival Instincts',
+    88	                    3: 'Renewal',
+    89	                    4: 'Dash',
+    90	                    5: 'Stampeding Roar',
+    91	                    6: 'Solar Beam',
+    92	                    7: '[Racial]',
+    93	                    8: 'Combat Pot'
+    94	                },
+    95	                rotation: {
+    96	                    1: 'Moonfire',
+    97	                    2: 'Sunfire',
+    98	                    3: 'Stellar Flare',
+    99	                    4: 'Starfire',
+   100	                    5: 'Wrath',
+   101	                    6: 'Starsurge',
+   102	                    7: 'Starfall',
+   103	                    8: 'Celestial Alignment',
+   104	                    9: 'Convoke the Spirits',
+   105	                    10: 'Force of Nature',
+   106	                    11: 'Warrior of Elune',
+   107	                    12: 'Typhoon', // Removed Solar Beam
+   108	                    13: 'Cyclone',
+   109	                    14: 'Entangling Roots'
+   110	                }
+   111	            },
+   112	            Feral: {
+   113	                name: 'Feral',
+   114	                panicRow: {
+   115	                    1: 'Barkskin',
+   116	                    2: 'Survival Instincts',
+   117	                    3: 'Renewal',
+   118	                    4: 'Dash',
+   119	                    5: 'Stampeding Roar',
+   120	                    6: 'Skull Bash',
+   121	                    7: '[Racial]',
+   122	                    8: 'Combat Pot'
+   123	                },
+   124	                rotation: {
+   125	                    1: 'Rake',
+   126	                    2: 'Shred',
+   127	                    3: 'Rip',
+   128	                    4: 'Ferocious Bite',
+   129	                    5: 'Swipe',
+   130	                    6: 'Thrash',
+   131	                    7: 'Berserk',
+   132	                    8: 'Tiger\'s Fury',
+   133	                    9: 'Feral Frenzy',
+   134	                    10: 'Adaptive Swarm',
+   135	                    11: 'Convoke the Spirits',
+   136	                    12: 'Maim', // Removed Skull Bash
+   137	                    13: 'Prowl',
+   138	                    14: 'Regrowth'
+   139	                }
+   140	            },
+   141	            Guardian: {
+   142	                name: 'Guardian',
+   143	                panicRow: {
+   144	                    1: 'Barkskin',
+   145	                    2: 'Survival Instincts',
+   146	                    3: 'Frenzied Regeneration',
+   147	                    4: 'Ironfur',
+   148	                    5: 'Stampeding Roar',
+   149	                    6: 'Skull Bash',
+   150	                    7: '[Racial]',
+   151	                    8: 'Combat Pot'
+   152	                },
+   153	                rotation: {
+   154	                    1: 'Moonfire',
+   155	                    2: 'Thrash',
+   156	                    3: 'Mangle',
+   157	                    4: 'Swipe',
+   158	                    5: 'Maul',
+   159	                    6: 'Incarnation: Guardian of Ursoc', // Removed Ironfur/Frenzied Regen
+   160	                    7: 'Rage of the Sleeper',
+   161	                    8: 'Growl', // Removed Barkskin/Survival/Skull Bash
+   162	                    9: 'Incapacitating Roar',
+   163	                    10: 'Renewal'
+   164	                }
+   165	            },
+   166	            Restoration: {
+   167	                name: 'Restoration',
+   168	                panicRow: {
+   169	                    1: 'Barkskin',
+   170	                    2: 'Ironbark',
+   171	                    3: 'Tranquility',
+   172	                    4: 'Dash',
+   173	                    5: 'Stampeding Roar',
+   174	                    6: 'Nature\'s Cure',
+   175	                    7: '[Racial]',
+   176	                    8: 'Combat Pot'
+   177	                },
+   178	                rotation: {
+   179	                    1: 'Rejuvenation',
+   180	                    2: 'Lifebloom',
+   181	                    3: 'Regrowth',
+   182	                    4: 'Wild Growth',
+   183	                    5: 'Swiftmend',
+   184	                    6: 'Efflorescence',
+   185	                    7: 'Cenarion Ward',
+   186	                    8: 'Adaptive Swarm',
+   187	                    9: 'Convoke the Spirits',
+   188	                    10: 'Tree of Life', // Removed Tranquility
+   189	                    11: 'Innervate',
+   190	                    12: 'Nature\'s Swiftness', // Removed Ironbark
+   191	                    13: 'Cyclone'
+   192	                }
+   193	            }
+   194	        }
+   195	    },
+   196	    Evoker: {
+   197	        name: 'Evoker',
+   198	        color: '#33937F',
+   199	        specs: {
+   200	            Devastation: {
+   201	                name: 'Devastation',
+   202	                panicRow: {
+   203	                    1: 'Obsidian Scales',
+   204	                    2: 'Renewing Blaze',
+   205	                    3: 'Hover',
+   206	                    4: 'Dragonrage',
+   207	                    5: 'Deep Breath',
+   208	                    6: 'Quell',
+   209	                    7: '[Racial]',
+   210	                    8: 'Combat Pot'
+   211	                }
+   212	            },
+   213	            Preservation: {
+   214	                name: 'Preservation',
+   215	                panicRow: {
+   216	                    1: 'Obsidian Scales',
+   217	                    2: 'Renewing Blaze',
+   218	                    3: 'Zephyr',
+   219	                    4: 'Rewind',
+   220	                    5: 'Stasis',
+   221	                    6: 'Quell',
+   222	                    7: '[Racial]',
+   223	                    8: 'Combat Pot'
+   224	                }
+   225	            },
+   226	            Augmentation: {
+   227	                name: 'Augmentation',
+   228	                panicRow: {
+   229	                    1: 'Obsidian Scales',
+   230	                    2: 'Renewing Blaze',
+   231	                    3: 'Hover',
+   232	                    4: 'Ebon Might',
+   233	                    5: 'Breath of Eons',
+   234	                    6: 'Quell',
+   235	                    7: '[Racial]',
+   236	                    8: 'Combat Pot'
+   237	                }
+   238	            }
+   239	        }
+   240	    },
+   241	    Hunter: {
+   242	        name: 'Hunter',
+   243	        color: '#ABD473',
+   244	        specs: {
+   245	            BeastMastery: {
+   246	                name: 'Beast Mastery',
+   247	                panicRow: {
+   248	                    1: 'Aspect of the Turtle',
+   249	                    2: 'Exhilaration',
+   250	                    3: 'Feign Death',
+   251	                    4: 'Bestial Wrath',
+   252	                    5: 'Call of the Wild',
+   253	                    6: 'Counter Shot',
+   254	                    7: '[Racial]',
+   255	                    8: 'Combat Pot'
+   256	                },
+   257	                rotation: {
+   258	                    1: 'Barbed Shot',
+   259	                    2: 'Kill Command',
+   260	                    3: 'Bestial Wrath',
+   261	                    4: 'Cobra Shot',
+   262	                    5: 'Kill Shot',
+   263	                    6: 'Multi-Shot',
+   264	                    7: 'Bloodshed',
+   265	                    8: 'Call of the Wild',
+   266	                    9: 'Concussive Shot',
+   267	                    10: 'Counter Shot',
+   268	                    11: 'Tar Trap',
+   269	                    12: 'Freezing Trap',
+   270	                    13: 'Tranquilizing Shot',
+   271	                    14: 'Mend Pet',
+   272	                    15: 'Revive Pet'
+   273	                }
+   274	            },
+   275	            Marksmanship: {
+   276	                name: 'Marksmanship',
+   277	                panicRow: {
+   278	                    1: 'Aspect of the Turtle',
+   279	                    2: 'Exhilaration',
+   280	                    3: 'Feign Death',
+   281	                    4: 'Trueshot',
+   282	                    5: 'Volley',
+   283	                    6: 'Counter Shot',
+   284	                    7: '[Racial]',
+   285	                    8: 'Combat Pot'
+   286	                }
+   287	            },
+   288	            Survival: {
+   289	                name: 'Survival',
+   290	                panicRow: {
+   291	                    1: 'Aspect of the Turtle',
+   292	                    2: 'Exhilaration',
+   293	                    3: 'Feign Death',
+   294	                    4: 'Coordinated Assault',
+   295	                    5: 'Fury of the Eagle',
+   296	                    6: 'Muzzle',
+   297	                    7: '[Racial]',
+   298	                    8: 'Combat Pot'
+   299	                }
+   300	            }
+   301	        }
+   302	    },
+   303	    Mage: {
+   304	        name: 'Mage',
+   305	        color: '#69CCF0',
+   306	        specs: {
+   307	            Arcane: {
+   308	                name: 'Arcane',
+   309	                panicRow: {
+   310	                    1: 'Ice Block',
+   311	                    2: 'Mirror Image',
+   312	                    3: 'Alter Time',
+   313	                    4: 'Arcane Surge',
+   314	                    5: 'Evocation',
+   315	                    6: 'Counterspell',
+   316	                    7: '[Racial]',
+   317	                    8: 'Combat Pot'
+   318	                },
+   319	                rotation: {
+   320	                    1: 'Arcane Blast',
+   321	                    2: 'Arcane Barrage',
+   322	                    3: 'Arcane Missiles',
+   323	                    4: 'Evocation',
+   324	                    5: 'Arcane Surge',
+   325	                    6: 'Touch of the Magi',
+   326	                    7: 'Arcane Orb',
+   327	                    8: 'Prismatic Barrier',
+   328	                    9: 'Mirror Image',
+   329	                    10: 'Alter Time',
+   330	                    11: 'Counterspell',
+   331	                    12: 'Spellsteal',
+   332	                    13: 'Remove Curse',
+   333	                    14: 'Slow',
+   334	                    15: 'Time Warp'
+   335	                }
+   336	            },
+   337	            Fire: {
+   338	                name: 'Fire',
+   339	                panicRow: {
+   340	                    1: 'Ice Block',
+   341	                    2: 'Mirror Image',
+   342	                    3: 'Alter Time',
+   343	                    4: 'Combustion',
+   344	                    5: 'Shifting Power',
+   345	                    6: 'Counterspell',
+   346	                    7: '[Racial]',
+   347	                    8: 'Combat Pot'
+   348	                },
+   349	                rotation: {
+   350	                    1: 'Fireball',
+   351	                    2: 'Pyroblast',
+   352	                    3: 'Fire Blast',
+   353	                    4: 'Phoenix Flames',
+   354	                    5: 'Combustion',
+   355	                    6: 'Scorch',
+   356	                    7: 'Flamestrike',
+   357	                    8: 'Living Bomb',
+   358	                    9: 'Dragon\'s Breath',
+   359	                    10: 'Blazing Barrier',
+   360	                    11: 'Mirror Image',
+   361	                    12: 'Alter Time',
+   362	                    13: 'Counterspell',
+   363	                    14: 'Spellsteal',
+   364	                    15: 'Time Warp'
+   365	                }
+   366	            },
+   367	            Frost: {
+   368	                name: 'Frost',
+   369	                panicRow: {
+   370	                    1: 'Ice Block',
+   371	                    2: 'Mirror Image',
+   372	                    3: 'Alter Time',
+   373	                    4: 'Icy Veins',
+   374	                    5: 'Cold Snap',
+   375	                    6: 'Counterspell',
+   376	                    7: '[Racial]',
+   377	                    8: 'Combat Pot'
+   378	                },
+   379	                rotation: {
+   380	                    1: 'Frostbolt',
+   381	                    2: 'Ice Lance',
+   382	                    3: 'Flurry',
+   383	                    4: 'Frozen Orb',
+   384	                    5: 'Icy Veins',
+   385	                    6: 'Blizzard',
+   386	                    7: 'Comet Storm',
+   387	                    8: 'Glacial Spike',
+   388	                    9: 'Cone of Cold',
+   389	                    10: 'Ice Barrier',
+   390	                    11: 'Mirror Image',
+   391	                    12: 'Alter Time',
+   392	                    13: 'Counterspell',
+   393	                    14: 'Spellsteal',
+   394	                    15: 'Time Warp'
+   395	                }
+   396	            }
+   397	        }
+   398	    },
+   399	    Monk: {
+   400	        name: 'Monk',
+   401	        color: '#00FF96',
+   402	        specs: {
+   403	            Brewmaster: {
+   404	                name: 'Brewmaster',
+   405	                panicRow: {
+   406	                    1: 'Fortifying Brew',
+   407	                    2: 'Zen Meditation',
+   408	                    3: 'Celestial Brew',
+   409	                    4: 'Invoke Niuzao',
+   410	                    5: 'Purifying Brew',
+   411	                    6: 'Spear Hand Strike',
+   412	                    7: '[Racial]',
+   413	                    8: 'Combat Pot'
+   414	                }
+   415	            },
+   416	            Mistweaver: {
+   417	                name: 'Mistweaver',
+   418	                panicRow: {
+   419	                    1: 'Fortifying Brew',
+   420	                    2: 'Diffuse Magic',
+   421	                    3: 'Life Cocoon',
+   422	                    4: 'Revival',
+   423	                    5: 'Thunder Focus Tea',
+   424	                    6: 'Spear Hand Strike',
+   425	                    7: '[Racial]',
+   426	                    8: 'Combat Pot'
+   427	                }
+   428	            },
+   429	            Windwalker: {
+   430	                name: 'Windwalker',
+   431	                panicRow: {
+   432	                    1: 'Fortifying Brew',
+   433	                    2: 'Diffuse Magic',
+   434	                    3: 'Touch of Karma',
+   435	                    4: 'Storm, Earth, Fire',
+   436	                    5: 'Invoke Xuen',
+   437	                    6: 'Spear Hand Strike',
+   438	                    7: '[Racial]',
+   439	                    8: 'Combat Pot'
+   440	                }
+   441	            }
+   442	        }
+   443	    },
+   444	    Paladin: {
+   445	        name: 'Paladin',
+   446	        color: '#F58CBA',
+   447	        specs: {
+   448	            Holy: {
+   449	                name: 'Holy',
+   450	                panicRow: {
+   451	                    1: 'Divine Shield',
+   452	                    2: 'Lay on Hands',
+   453	                    3: 'Divine Protection',
+   454	                    4: 'Avenging Wrath',
+   455	                    5: 'Aura Mastery',
+   456	                    6: 'Rebuke',
+   457	                    7: '[Racial]',
+   458	                    8: 'Combat Pot'
+   459	                },
+   460	                rotation: {
+   461	                    1: 'Holy Shock',
+   462	                    2: 'Word of Glory',
+   463	                    3: 'Flash of Light',
+   464	                    4: 'Holy Light',
+   465	                    5: 'Light of Dawn',
+   466	                    6: 'Bestow Faith',
+   467	                    7: 'Beacon of Light',
+   468	                    8: 'Crusader Strike',
+   469	                    9: 'Judgment',
+   470	                    10: 'Holy Prism',
+   471	                    11: 'Cleanse',
+   472	                    12: 'Blessing of Freedom',
+   473	                    13: 'Blessing of Sacrifice',
+   474	                    14: 'Rule of Law',
+   475	                    15: '[Empty]'
+   476	                }
+   477	            },
+   478	            Protection: {
+   479	                name: 'Protection',
+   480	                panicRow: {
+   481	                    1: 'Divine Shield',
+   482	                    2: 'Lay on Hands',
+   483	                    3: 'Ardent Defender',
+   484	                    4: 'Guardian of Ancient Kings',
+   485	                    5: 'Word of Glory',
+   486	                    6: 'Rebuke',
+   487	                    7: '[Racial]',
+   488	                    8: 'Combat Pot'
+   489	                },
+   490	                rotation: {
+   491	                    1: 'Shield of Righteousness',
+   492	                    2: 'Judgment',
+   493	                    3: 'Hammer of Wrath',
+   494	                    4: "Avenger's Shield",
+   495	                    5: 'Consecration',
+   496	                    6: 'Hammer of the Righteous',
+   497	                    7: 'Hand of Reckoning',
+   498	                    8: 'Blinding Light',
+   499	                    9: 'Hammer of Justice',
+   500	                    10: 'Cleanse Toxins',
+   501	                    11: 'Blessing of Freedom',
+   502	                    12: 'Blessing of Sacrifice',
+   503	                    13: '[Empty]',
+   504	                    14: '[Empty]',
+   505	                    15: '[Empty]'
+   506	                }
+   507	            },
+   508	            Retribution: {
+   509	                name: 'Retribution',
+   510	                panicRow: {
+   511	                    1: 'Divine Shield',
+   512	                    2: 'Lay on Hands',
+   513	                    3: 'Shield of Vengeance',
+   514	                    4: 'Avenging Wrath',
+   515	                    5: 'Final Reckoning',
+   516	                    6: 'Rebuke',
+   517	                    7: '[Racial]',
+   518	                    8: 'Combat Pot'
+   519	                },
+   520	                rotation: {
+   521	                    1: "Templar's Verdict",
+   522	                    2: 'Blade of Justice',
+   523	                    3: 'Judgment',
+   524	                    4: 'Hammer of Wrath',
+   525	                    5: 'Crusader Strike',
+   526	                    6: 'Divine Storm',
+   527	                    7: 'Wake of Ashes',
+   528	                    8: 'Hand of Hindrance',
+   529	                    9: 'Blinding Light',
+   530	                    10: 'Hammer of Justice',
+   531	                    11: 'Cleanse Toxins',
+   532	                    12: 'Blessing of Freedom',
+   533	                    13: 'Blessing of Sacrifice',
+   534	                    14: 'Shield of Righteousness',
+   535	                    15: '[Empty]'
+   536	                }
+   537	            }
+   538	        }
+   539	    },
+   540	    Priest: {
+   541	        name: 'Priest',
+   542	        color: '#FFFFFF',
+   543	        specs: {
+   544	            Discipline: {
+   545	                name: 'Discipline',
+   546	                panicRow: {
+   547	                    1: 'Desperate Prayer',
+   548	                    2: 'Fade',
+   549	                    3: 'Pain Suppression',
+   550	                    4: 'Power Word: Barrier',
+   551	                    5: 'Rapture',
+   552	                    6: '[No Interrupt]',
+   553	                    7: '[Racial]',
+   554	                    8: 'Combat Pot'
+   555	                },
+   556	                rotation: {
+   557	                    1: 'Power Word: Shield',
+   558	                    2: 'Shadow Word: Pain',
+   559	                    3: 'Penance',
+   560	                    4: 'Smite',
+   561	                    5: 'Flash Heal',
+   562	                    6: 'Psychic Scream',
+   563	                    7: 'Power Word: Radiance',
+   564	                    8: 'Purge the Wicked',
+   565	                    9: 'Shadowfiend',
+   566	                    10: 'Power Infusion',
+   567	                    11: 'Pain Suppression',
+   568	                    12: 'Power Word: Barrier',
+   569	                    13: 'Mass Dispel',
+   570	                    14: 'Leap of Faith',
+   571	                    15: 'Fade'
+   572	                }
+   573	            },
+   574	            Holy: {
+   575	                name: 'Holy',
+   576	                panicRow: {
+   577	                    1: 'Desperate Prayer',
+   578	                    2: 'Fade',
+   579	                    3: 'Guardian Spirit',
+   580	                    4: 'Divine Hymn',
+   581	                    5: 'Apotheosis',
+   582	                    6: '[No Interrupt]',
+   583	                    7: '[Racial]',
+   584	                    8: 'Combat Pot'
+   585	                },
+   586	                rotation: {
+   587	                    1: 'Heal',
+   588	                    2: 'Flash Heal',
+   589	                    3: 'Holy Word: Serenity',
+   590	                    4: 'Holy Word: Sanctify',
+   591	                    5: 'Prayer of Mending',
+   592	                    6: 'Renew',
+   593	                    7: 'Circle of Healing',
+   594	                    8: 'Holy Fire',
+   595	                    9: 'Smite',
+   596	                    10: 'Divine Hymn',
+   597	                    11: 'Guardian Spirit',
+   598	                    12: 'Mass Dispel',
+   599	                    13: 'Leap of Faith',
+   600	                    14: 'Fade',
+   601	                    15: 'Desperate Prayer'
+   602	                }
+   603	            },
+   604	            Shadow: {
+   605	                name: 'Shadow',
+   606	                panicRow: {
+   607	                    1: 'Desperate Prayer',
+   608	                    2: 'Fade',
+   609	                    3: 'Dispersion',
+   610	                    4: 'Void Eruption',
+   611	                    5: 'Dark Ascension',
+   612	                    6: 'Silence',
+   613	                    7: '[Racial]',
+   614	                    8: 'Combat Pot'
+   615	                },
+   616	                rotation: {
+   617	                    1: 'Shadow Word: Pain',
+   618	                    2: 'Vampiric Touch',
+   619	                    3: 'Mind Blast',
+   620	                    4: 'Mind Flay',
+   621	                    5: 'Devouring Plague',
+   622	                    6: 'Shadow Crash',
+   623	                    7: 'Void Eruption',
+   624	                    8: 'Shadowform',
+   625	                    9: 'Dispersion',
+   626	                    10: 'Vampiric Embrace',
+   627	                    11: 'Silence',
+   628	                    12: 'Psychic Scream',
+   629	                    13: 'Power Infusion',
+   630	                    14: 'Mass Dispel',
+   631	                    15: 'Fade'
+   632	                }
+   633	            }
+   634	        }
+   635	    },
+   636	    Rogue: {
+   637	        name: 'Rogue',
+   638	        color: '#FFF569',
+   639	        specs: {
+   640	            Assassination: {
+   641	                name: 'Assassination',
+   642	                panicRow: {
+   643	                    1: 'Cloak of Shadows',
+   644	                    2: 'Evasion',
+   645	                    3: 'Vanish',
+   646	                    4: 'Deathmark',
+   647	                    5: 'Shiv',
+   648	                    6: 'Kick',
+   649	                    7: '[Racial]',
+   650	                    8: 'Combat Pot'
+   651	                },
+   652	                rotation: {
+   653	                    1: 'Mutilate',
+   654	                    2: 'Envenom',
+   655	                    3: 'Garrote',
+   656	                    4: 'Rupture',
+   657	                    5: 'Shiv',
+   658	                    6: 'Deathmark',
+   659	                    7: 'Fan of Knives',
+   660	                    8: 'Crimson Tempest',
+   661	                    9: 'Ambush',
+   662	                    10: 'Stealth',
+   663	                    11: 'Vanish',
+   664	                    12: 'Kick',
+   665	                    13: 'Kidney Shot',
+   666	                    14: 'Slice and Dice',
+   667	                    15: 'Sprint'
+   668	                }
+   669	            },
+   670	            Outlaw: {
+   671	                name: 'Outlaw',
+   672	                panicRow: {
+   673	                    1: 'Cloak of Shadows',
+   674	                    2: 'Evasion',
+   675	                    3: 'Vanish',
+   676	                    4: 'Adrenaline Rush',
+   677	                    5: 'Blade Flurry',
+   678	                    6: 'Kick',
+   679	                    7: '[Racial]',
+   680	                    8: 'Combat Pot'
+   681	                },
+   682	                rotation: {
+   683	                    1: 'Sinister Strike',
+   684	                    2: 'Dispatch',
+   685	                    3: 'Pistol Shot',
+   686	                    4: 'Between the Eyes',
+   687	                    5: 'Adrenaline Rush',
+   688	                    6: 'Blade Flurry',
+   689	                    7: 'Roll the Bones',
+   690	                    8: 'Ambush',
+   691	                    9: 'Ghostly Strike',
+   692	                    10: 'Killing Spree',
+   693	                    11: 'Stealth',
+   694	                    12: 'Vanish',
+   695	                    13: 'Kick',
+   696	                    14: 'Gouge',
+   697	                    15: 'Sprint'
+   698	                }
+   699	            },
+   700	            Subtlety: {
+   701	                name: 'Subtlety',
+   702	                panicRow: {
+   703	                    1: 'Cloak of Shadows',
+   704	                    2: 'Evasion',
+   705	                    3: 'Vanish',
+   706	                    4: 'Shadow Dance',
+   707	                    5: 'Secret Technique',
+   708	                    6: 'Kick',
+   709	                    7: '[Racial]',
+   710	                    8: 'Combat Pot'
+   711	                },
+   712	                rotation: {
+   713	                    1: 'Backstab',
+   714	                    2: 'Shadowstrike',
+   715	                    3: 'Eviscerate',
+   716	                    4: 'Shadow Dance',
+   717	                    5: 'Symbols of Death',
+   718	                    6: 'Secret Technique',
+   719	                    7: 'Shuriken Storm',
+   720	                    8: 'Black Powder',
+   721	                    9: 'Shadow Blades',
+   722	                    10: 'Cold Blood',
+   723	                    11: 'Stealth',
+   724	                    12: 'Vanish',
+   725	                    13: 'Kick',
+   726	                    14: 'Cheap Shot',
+   727	                    15: 'Sprint'
+   728	                }
+   729	            }
+   730	        }
+   731	    },
+   732	    Shaman: {
+   733	        name: 'Shaman',
+   734	        color: '#0070DE',
+   735	        specs: {
+   736	            Elemental: {
+   737	                name: 'Elemental',
+   738	                panicRow: {
+   739	                    1: 'Astral Shift',
+   740	                    2: 'Earth Elemental',
+   741	                    3: "Nature's Swiftness",
+   742	                    4: 'Stormkeeper',
+   743	                    5: 'Fire Elemental',
+   744	                    6: 'Wind Shear',
+   745	                    7: '[Racial]',
+   746	                    8: 'Combat Pot'
+   747	                },
+   748	                rotation: {
+   749	                    1: 'Flame Shock',
+   750	                    2: 'Lava Burst',
+   751	                    3: 'Elemental Blast',
+   752	                    4: 'Earth Shock',
+   753	                    5: 'Lightning Bolt',
+   754	                    6: 'Chain Lightning',
+   755	                    7: 'Earthquake',
+   756	                    8: 'Icefury',
+   757	                    9: 'Primordial Wave',
+   758	                    10: 'Liquid Magma Totem',
+   759	                    11: 'Capacitor Totem',
+   760	                    12: 'Thunderstorm',
+   761	                    13: 'Cleanse Spirit',
+   762	                    14: 'Ghost Wolf',
+   763	                    15: 'Hex'
+   764	                }
+   765	            },
+   766	            Enhancement: {
+   767	                name: 'Enhancement',
+   768	                panicRow: {
+   769	                    1: 'Astral Shift',
+   770	                    2: 'Earth Elemental',
+   771	                    3: 'Feral Spirit',
+   772	                    4: 'Ascendance',
+   773	                    5: 'Doom Winds',
+   774	                    6: 'Wind Shear',
+   775	                    7: '[Racial]',
+   776	                    8: 'Combat Pot'
+   777	                },
+   778	                rotation: {
+   779	                    1: 'Stormstrike',
+   780	                    2: 'Lava Lash',
+   781	                    3: 'Ice Strike',
+   782	                    4: 'Crash Lightning',
+   783	                    5: 'Sundering',
+   784	                    6: 'Primordial Wave',
+   785	                    7: 'Elemental Blast',
+   786	                    8: 'Lightning Bolt',
+   787	                    9: 'Chain Lightning',
+   788	                    10: 'Flame Shock',
+   789	                    11: 'Frost Shock',
+   790	                    Elemental: {
+   791	                        name: 'Elemental',
+   792	                        panicRow: {
+   793	                            1: 'Astral Shift',
+   794	                            2: 'Earth Elemental',
+   795	                            3: "Nature's Swiftness",
+   796	                            4: 'Stormkeeper',
+   797	                            5: 'Fire Elemental',
+   798	                            6: 'Wind Shear',
+   799	                            7: '[Racial]',
+   800	                            8: 'Combat Pot'
+   801	                        },
+   802	                        rotation: {
+   803	                            1: 'Flame Shock',
+   804	                            2: 'Lava Burst',
+   805	                            3: 'Elemental Blast',
+   806	                            4: 'Earth Shock',
+   807	                            5: 'Lightning Bolt',
+   808	                            6: 'Chain Lightning',
+   809	                            7: 'Earthquake',
+   810	                            8: 'Icefury',
+   811	                            9: 'Primordial Wave',
+   812	                            10: 'Liquid Magma Totem',
+   813	                            11: 'Capacitor Totem',
+   814	                            12: 'Thunderstorm',
+   815	                            13: 'Cleanse Spirit',
+   816	                            14: 'Ghost Wolf',
+   817	                            15: 'Hex'
+   818	                        }
+   819	                    },
+   820	                    Enhancement: {
+   821	                        name: 'Enhancement',
+   822	                        panicRow: {
+   823	                            1: 'Astral Shift',
+   824	                            2: 'Earth Elemental',
+   825	                            3: 'Feral Spirit',
+   826	                            4: 'Ascendance',
+   827	                            5: 'Doom Winds',
+   828	                            6: 'Wind Shear',
+   829	                            7: '[Racial]',
+   830	                            8: 'Combat Pot'
+   831	                        },
+   832	                        rotation: {
+   833	                            1: 'Stormstrike',
+   834	                            2: 'Lava Lash',
+   835	                            3: 'Ice Strike',
+   836	                            4: 'Crash Lightning',
+   837	                            5: 'Sundering',
+   838	                            6: 'Primordial Wave',
+   839	                            7: 'Elemental Blast',
+   840	                            8: 'Lightning Bolt',
+   841	                            9: 'Chain Lightning',
+   842	                            10: 'Flame Shock',
+   843	                            11: 'Frost Shock',
+   844	                            12: 'Capacitor Totem',
+   845	                            13: 'Ghost Wolf',
+   846	                            14: 'Cleanse Spirit',
+   847	                            15: 'Hex'
+   848	                        }
+   849	                    },
+   850	                    Restoration: {
+   851	                        name: 'Restoration',
+   852	                        panicRow: {
+   853	                            1: 'Astral Shift',
+   854	                            2: 'Earth Elemental',
+   855	                            3: 'Spirit Link Totem',
+   856	                            4: 'Healing Tide Totem',
+   857	                            5: 'Ancestral Guidance',
+   858	                            6: 'Wind Shear',
+   859	                            7: '[Racial]',
+   860	                            8: 'Combat Pot'
+   861	                        },
+   862	                        rotation: {
+   863	                            1: 'Riptide',
+   864	                            2: 'Healing Wave',
+   865	                            3: 'Healing Surge',
+   866	                            4: 'Chain Heal',
+   867	                            5: 'Healing Rain',
+   868	                            6: 'Cloudburst Totem',
+   869	                            7: 'Primordial Wave',
+   870	                            8: 'Mana Tide Totem',
+   871	                            9: 'Earthen Wall Totem',
+   872	                            10: 'Purify Spirit',
+   873	                            11: 'Ghost Wolf',
+   874	                            12: 'Capacitor Totem',
+   875	                            13: 'Earth Shield',
+   876	                            14: 'Water Shield',
+   877	                            15: 'Hex'
+   878	                        }
+   879	                    }
+   880	                }
+   881	            },
+   882	            Warlock: {
+   883	                name: 'Warlock',
+   884	                color: '#8787ED',
+   885	                specs: {
+   886	                    Affliction: {
+   887	                        name: 'Affliction',
+   888	                        panicRow: {
+   889	                            1: 'Unending Resolve',
+   890	                            2: 'Dark Pact',
+   891	                            3: 'Drain Life',
+   892	                            4: 'Summon Darkglare',
+   893	                            5: 'Soul Rot',
+   894	                            6: '[No Interrupt]',
+   895	                            7: '[Racial]',
+   896	                            8: 'Combat Pot'
+   897	                        },
+   898	                        rotation: {
+   899	                            1: 'Unstable Affliction',
+   900	                            2: 'Agony',
+   901	                            3: 'Corruption',
+   902	                            4: 'Malefic Rapture',
+   903	                            5: 'Drain Soul',
+   904	                            6: 'Seed of Corruption',
+   905	                            7: 'Vile Taint',
+   906	                            8: 'Phantom Singularity',
+   907	                            9: 'Soul Rot',
+   908	                            10: 'Summon Darkglare',
+   909	                            11: 'Haunt',
+   910	                            12: 'Nightfall',
+   911	                            13: 'Shadow Embrace',
+   912	                            14: 'Curse of Tongues',
+   913	                            15: 'Create Healthstone'
+   914	                        }
+   915	                    },
+   916	                    Demonology: {
+   917	                        name: 'Demonology',
+   918	                        panicRow: {
+   919	                            1: 'Unending Resolve',
+   920	                            2: 'Dark Pact',
+   921	                            3: 'Demonic Strength',
+   922	                            4: 'Summon Demonic Tyrant',
+   923	                            5: 'Nether Portal',
+   924	                            6: '[No Interrupt]',
+   925	                            7: '[Racial]',
+   926	                            8: 'Combat Pot'
+   927	                        },
+   928	                        rotation: {
+   929	                            1: "Hand of Gul'dan",
+   930	                            2: 'Demonbolt',
+   931	                            3: 'Shadow Bolt',
+   932	                            4: 'Call Dreadstalkers',
+   933	                            5: 'Implosion',
+   934	                            6: 'Summon Demonic Tyrant',
+   935	                            7: 'Grimoire: Felguard',
+   936	                            8: 'Demonic Strength',
+   937	                            9: 'Power Siphon',
+   938	                            10: 'Doom',
+   939	                            11: 'Soul Strike',
+   940	                            12: 'Bilescourge Bombers',
+   941	                            13: 'Curse of Weakness',
+   942	                            14: 'Create Healthstone',
+   943	                            15: 'Summon Felguard'
+   944	                        }
+   945	                    },
+   946	                    Destruction: {
+   947	                        name: 'Destruction',
+   948	                        panicRow: {
+   949	                            1: 'Unending Resolve',
+   950	                            2: 'Dark Pact',
+   951	                            3: 'Infernal',
+   952	                            4: 'Summon Infernal',
+   953	                            5: 'Channel Demonfire',
+   954	                            6: '[No Interrupt]',
+   955	                            7: '[Racial]',
+   956	                            8: 'Combat Pot'
+   957	                        },
+   958	                        rotation: {
+   959	                            1: 'Chaos Bolt',
+   960	                            2: 'Incinerate',
+   961	                            3: 'Conflagrate',
+   962	                            4: 'Immolate',
+   963	                            5: 'Rain of Fire',
+   964	                            6: 'Havoc',
+   965	                            7: 'Summon Infernal',
+   966	                            8: 'Channel Demonfire',
+   967	                            9: 'Shadowburn',
+   968	                            10: 'Cataclysm',
+   969	                            11: 'Dimensional Rift',
+   970	                            12: 'Soul Fire',
+   971	                            13: 'Curse of Exhaustion',
+   972	                            14: 'Create Healthstone',
+   973	                            15: 'Summon Imp'
+   974	                        }
+   975	                    }
+   976	                }
+   977	            },
+   978	            Warrior: {
+   979	                name: 'Warrior',
+   980	                color: '#C79C6E',
+   981	                specs: {
+   982	                    Arms: {
+   983	                        name: 'Arms',
+   984	                        panicRow: {
+   985	                            1: 'Die by the Sword',
+   986	                            2: 'Ignore Pain',
+   987	                            3: 'Rallying Cry',
+   988	                            4: 'Colossus Smash',
+   989	                            5: 'Avatar',
+   990	                            6: 'Pummel',
+   991	                            7: '[Racial]',
+   992	                            8: 'Combat Pot'
+   993	                        },
+   994	                        rotation: {
+   995	                            1: 'Mortal Strike',
+   996	                            2: 'Overpower',
+   997	                            3: 'Execute',
+   998	                            4: 'Slam',
+   999	                            5: 'Colossus Smash',
+  1000	                            6: 'Bladestorm',
+  1001	                            7: 'Sweeping Strikes',
+  1002	                            8: 'Cleave',
+  1003	                            9: 'Hamstring',
+  1004	                            10: 'Victory Rush',
+  1005	                            11: 'Thunder Clap',
+  1006	                            12: 'Charge',
+  1007	                            13: 'Heroic Leap',
+  1008	                            14: 'Heroic Throw',
+  1009	                            15: 'Berserker Rage'
+  1010	                        }
+  1011	                    },
+  1012	                    Fury: {
+  1013	                        name: 'Fury',
+  1014	                        panicRow: {
+  1015	                            1: 'Enraged Regeneration',
+  1016	                            2: 'Ignore Pain',
+  1017	                            3: 'Rallying Cry',
+  1018	                            4: 'Recklessness',
+  1019	                            5: "Odyn's Fury",
+  1020	                            6: 'Pummel',
+  1021	                            7: '[Racial]',
+  1022	                            8: 'Combat Pot'
+  1023	                        }
+  1024	                    },
+  1025	                    Protection: {
+  1026	                        name: 'Protection',
+  1027	                        panicRow: {
+  1028	                            1: 'Shield Wall',
+  1029	                            2: 'Last Stand',
+  1030	                            3: 'Ignore Pain',
+  1031	                            4: 'Avatar',
+  1032	                            5: 'Demoralizing Shout',
+  1033	                            6: 'Pummel',
+  1034	                            7: '[Racial]',
+  1035	                            8: 'Combat Pot'
+  1036	                        }
+  1037	                    }
+  1038	                }
+  1039	            }
+  1040	        };
+  1041	
+  1042	        module.exports = Classes;

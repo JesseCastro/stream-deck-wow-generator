@@ -84,52 +84,111 @@ const Classes = {
                 name: 'Balance',
                 panicRow: {
                     1: 'Barkskin',
-                    2: 'Bear Form',
-                    3: 'Frenzied Regen',
-                    4: 'Celestial Alignment',
-                    5: 'Incarnation',
+                    2: 'Survival Instincts',
+                    3: 'Renewal',
+                    4: 'Dash',
+                    5: 'Stampeding Roar',
                     6: 'Solar Beam',
                     7: '[Racial]',
                     8: 'Combat Pot'
+                },
+                rotation: {
+                    1: 'Moonfire',
+                    2: 'Sunfire',
+                    3: 'Stellar Flare',
+                    4: 'Starfire',
+                    5: 'Wrath',
+                    6: 'Starsurge',
+                    7: 'Starfall',
+                    8: 'Celestial Alignment',
+                    9: 'Convoke the Spirits',
+                    10: 'Force of Nature',
+                    11: 'Warrior of Elune',
+                    12: 'Typhoon', // Removed Solar Beam
+                    13: 'Cyclone',
+                    14: 'Entangling Roots'
                 }
             },
             Feral: {
                 name: 'Feral',
                 panicRow: {
-                    1: 'Survival Instincts',
-                    2: 'Barkskin',
-                    3: 'Bear Form',
-                    4: 'Berserk',
-                    5: "Tiger's Fury",
+                    1: 'Barkskin',
+                    2: 'Survival Instincts',
+                    3: 'Renewal',
+                    4: 'Dash',
+                    5: 'Stampeding Roar',
                     6: 'Skull Bash',
                     7: '[Racial]',
                     8: 'Combat Pot'
+                },
+                rotation: {
+                    1: 'Rake',
+                    2: 'Shred',
+                    3: 'Rip',
+                    4: 'Ferocious Bite',
+                    5: 'Swipe',
+                    6: 'Thrash',
+                    7: 'Berserk',
+                    8: 'Tiger\'s Fury',
+                    9: 'Feral Frenzy',
+                    10: 'Adaptive Swarm',
+                    11: 'Convoke the Spirits',
+                    12: 'Maim', // Removed Skull Bash
+                    13: 'Prowl',
+                    14: 'Regrowth'
                 }
             },
             Guardian: {
                 name: 'Guardian',
                 panicRow: {
-                    1: 'Survival Instincts',
-                    2: 'Barkskin',
-                    3: 'Frenzied Regen',
-                    4: 'Incarnation',
-                    5: 'Rage of the Sleeper',
+                    1: 'Barkskin',
+                    2: 'Survival Instincts',
+                    3: 'Frenzied Regeneration',
+                    4: 'Ironfur',
+                    5: 'Stampeding Roar',
                     6: 'Skull Bash',
                     7: '[Racial]',
                     8: 'Combat Pot'
+                },
+                rotation: {
+                    1: 'Moonfire',
+                    2: 'Thrash',
+                    3: 'Mangle',
+                    4: 'Swipe',
+                    5: 'Maul',
+                    6: 'Incarnation: Guardian of Ursoc', // Removed Ironfur/Frenzied Regen
+                    7: 'Rage of the Sleeper',
+                    8: 'Growl', // Removed Barkskin/Survival/Skull Bash
+                    9: 'Incapacitating Roar',
+                    10: 'Renewal'
                 }
             },
             Restoration: {
                 name: 'Restoration',
                 panicRow: {
                     1: 'Barkskin',
-                    2: 'Bear Form',
-                    3: 'Ironbark',
-                    4: 'Tranquility',
-                    5: "Nature's Swiftness",
-                    6: 'Solar Beam',
+                    2: 'Ironbark',
+                    3: 'Tranquility',
+                    4: 'Dash',
+                    5: 'Stampeding Roar',
+                    6: 'Nature\'s Cure',
                     7: '[Racial]',
                     8: 'Combat Pot'
+                },
+                rotation: {
+                    1: 'Rejuvenation',
+                    2: 'Lifebloom',
+                    3: 'Regrowth',
+                    4: 'Wild Growth',
+                    5: 'Swiftmend',
+                    6: 'Efflorescence',
+                    7: 'Cenarion Ward',
+                    8: 'Adaptive Swarm',
+                    9: 'Convoke the Spirits',
+                    10: 'Tree of Life', // Removed Tranquility
+                    11: 'Innervate',
+                    12: 'Nature\'s Swiftness', // Removed Ironbark
+                    13: 'Cyclone'
                 }
             }
         }
@@ -194,6 +253,23 @@ const Classes = {
                     6: 'Counter Shot',
                     7: '[Racial]',
                     8: 'Combat Pot'
+                },
+                rotation: {
+                    1: 'Barbed Shot',
+                    2: 'Kill Command',
+                    3: 'Bestial Wrath',
+                    4: 'Cobra Shot',
+                    5: 'Kill Shot',
+                    6: 'Multi-Shot',
+                    7: 'Bloodshed',
+                    8: 'Call of the Wild',
+                    9: 'Concussive Shot',
+                    10: 'Counter Shot',
+                    11: 'Tar Trap',
+                    12: 'Freezing Trap',
+                    13: 'Tranquilizing Shot',
+                    14: 'Mend Pet',
+                    15: 'Revive Pet'
                 }
             },
             Marksmanship: {
@@ -239,6 +315,23 @@ const Classes = {
                     6: 'Counterspell',
                     7: '[Racial]',
                     8: 'Combat Pot'
+                },
+                rotation: {
+                    1: 'Arcane Blast',
+                    2: 'Arcane Barrage',
+                    3: 'Arcane Missiles',
+                    4: 'Evocation',
+                    5: 'Arcane Surge',
+                    6: 'Touch of the Magi',
+                    7: 'Arcane Orb',
+                    8: 'Prismatic Barrier',
+                    9: 'Mirror Image',
+                    10: 'Alter Time',
+                    11: 'Counterspell',
+                    12: 'Spellsteal',
+                    13: 'Remove Curse',
+                    14: 'Slow',
+                    15: 'Time Warp'
                 }
             },
             Fire: {
@@ -252,6 +345,23 @@ const Classes = {
                     6: 'Counterspell',
                     7: '[Racial]',
                     8: 'Combat Pot'
+                },
+                rotation: {
+                    1: 'Fireball',
+                    2: 'Pyroblast',
+                    3: 'Fire Blast',
+                    4: 'Phoenix Flames',
+                    5: 'Combustion',
+                    6: 'Scorch',
+                    7: 'Flamestrike',
+                    8: 'Living Bomb',
+                    9: 'Dragon\'s Breath',
+                    10: 'Blazing Barrier',
+                    11: 'Mirror Image',
+                    12: 'Alter Time',
+                    13: 'Counterspell',
+                    14: 'Spellsteal',
+                    15: 'Time Warp'
                 }
             },
             Frost: {
@@ -265,6 +375,23 @@ const Classes = {
                     6: 'Counterspell',
                     7: '[Racial]',
                     8: 'Combat Pot'
+                },
+                rotation: {
+                    1: 'Frostbolt',
+                    2: 'Ice Lance',
+                    3: 'Flurry',
+                    4: 'Frozen Orb',
+                    5: 'Icy Veins',
+                    6: 'Blizzard',
+                    7: 'Comet Storm',
+                    8: 'Glacial Spike',
+                    9: 'Cone of Cold',
+                    10: 'Ice Barrier',
+                    11: 'Mirror Image',
+                    12: 'Alter Time',
+                    13: 'Counterspell',
+                    14: 'Spellsteal',
+                    15: 'Time Warp'
                 }
             }
         }
@@ -425,6 +552,23 @@ const Classes = {
                     6: '[No Interrupt]',
                     7: '[Racial]',
                     8: 'Combat Pot'
+                },
+                rotation: {
+                    1: 'Power Word: Shield',
+                    2: 'Shadow Word: Pain',
+                    3: 'Penance',
+                    4: 'Smite',
+                    5: 'Flash Heal',
+                    6: 'Psychic Scream',
+                    7: 'Power Word: Radiance',
+                    8: 'Purge the Wicked',
+                    9: 'Shadowfiend',
+                    10: 'Power Infusion',
+                    11: 'Pain Suppression',
+                    12: 'Power Word: Barrier',
+                    13: 'Mass Dispel',
+                    14: 'Leap of Faith',
+                    15: 'Fade'
                 }
             },
             Holy: {
@@ -438,6 +582,23 @@ const Classes = {
                     6: '[No Interrupt]',
                     7: '[Racial]',
                     8: 'Combat Pot'
+                },
+                rotation: {
+                    1: 'Heal',
+                    2: 'Flash Heal',
+                    3: 'Holy Word: Serenity',
+                    4: 'Holy Word: Sanctify',
+                    5: 'Prayer of Mending',
+                    6: 'Renew',
+                    7: 'Circle of Healing',
+                    8: 'Holy Fire',
+                    9: 'Smite',
+                    10: 'Divine Hymn',
+                    11: 'Guardian Spirit',
+                    12: 'Mass Dispel',
+                    13: 'Leap of Faith',
+                    14: 'Fade',
+                    15: 'Desperate Prayer'
                 }
             },
             Shadow: {
@@ -451,6 +612,23 @@ const Classes = {
                     6: 'Silence',
                     7: '[Racial]',
                     8: 'Combat Pot'
+                },
+                rotation: {
+                    1: 'Shadow Word: Pain',
+                    2: 'Vampiric Touch',
+                    3: 'Mind Blast',
+                    4: 'Mind Flay',
+                    5: 'Devouring Plague',
+                    6: 'Shadow Crash',
+                    7: 'Void Eruption',
+                    8: 'Shadowform',
+                    9: 'Dispersion',
+                    10: 'Vampiric Embrace',
+                    11: 'Silence',
+                    12: 'Psychic Scream',
+                    13: 'Power Infusion',
+                    14: 'Mass Dispel',
+                    15: 'Fade'
                 }
             }
         }
@@ -470,6 +648,23 @@ const Classes = {
                     6: 'Kick',
                     7: '[Racial]',
                     8: 'Combat Pot'
+                },
+                rotation: {
+                    1: 'Mutilate',
+                    2: 'Envenom',
+                    3: 'Garrote',
+                    4: 'Rupture',
+                    5: 'Shiv',
+                    6: 'Deathmark',
+                    7: 'Fan of Knives',
+                    8: 'Crimson Tempest',
+                    9: 'Ambush',
+                    10: 'Stealth',
+                    11: 'Vanish',
+                    12: 'Kick',
+                    13: 'Kidney Shot',
+                    14: 'Slice and Dice',
+                    15: 'Sprint'
                 }
             },
             Outlaw: {
@@ -483,6 +678,23 @@ const Classes = {
                     6: 'Kick',
                     7: '[Racial]',
                     8: 'Combat Pot'
+                },
+                rotation: {
+                    1: 'Sinister Strike',
+                    2: 'Dispatch',
+                    3: 'Pistol Shot',
+                    4: 'Between the Eyes',
+                    5: 'Adrenaline Rush',
+                    6: 'Blade Flurry',
+                    7: 'Roll the Bones',
+                    8: 'Ambush',
+                    9: 'Ghostly Strike',
+                    10: 'Killing Spree',
+                    11: 'Stealth',
+                    12: 'Vanish',
+                    13: 'Kick',
+                    14: 'Gouge',
+                    15: 'Sprint'
                 }
             },
             Subtlety: {
@@ -496,6 +708,23 @@ const Classes = {
                     6: 'Kick',
                     7: '[Racial]',
                     8: 'Combat Pot'
+                },
+                rotation: {
+                    1: 'Backstab',
+                    2: 'Shadowstrike',
+                    3: 'Eviscerate',
+                    4: 'Shadow Dance',
+                    5: 'Symbols of Death',
+                    6: 'Secret Technique',
+                    7: 'Shuriken Storm',
+                    8: 'Black Powder',
+                    9: 'Shadow Blades',
+                    10: 'Cold Blood',
+                    11: 'Stealth',
+                    12: 'Vanish',
+                    13: 'Kick',
+                    14: 'Cheap Shot',
+                    15: 'Sprint'
                 }
             }
         }
@@ -515,6 +744,23 @@ const Classes = {
                     6: 'Wind Shear',
                     7: '[Racial]',
                     8: 'Combat Pot'
+                },
+                rotation: {
+                    1: 'Flame Shock',
+                    2: 'Lava Burst',
+                    3: 'Elemental Blast',
+                    4: 'Earth Shock',
+                    5: 'Lightning Bolt',
+                    6: 'Chain Lightning',
+                    7: 'Earthquake',
+                    8: 'Icefury',
+                    9: 'Primordial Wave',
+                    10: 'Liquid Magma Totem',
+                    11: 'Capacitor Totem',
+                    12: 'Thunderstorm',
+                    13: 'Cleanse Spirit',
+                    14: 'Ghost Wolf',
+                    15: 'Hex'
                 }
             },
             Enhancement: {
@@ -528,6 +774,23 @@ const Classes = {
                     6: 'Wind Shear',
                     7: '[Racial]',
                     8: 'Combat Pot'
+                },
+                rotation: {
+                    1: 'Stormstrike',
+                    2: 'Lava Lash',
+                    3: 'Ice Strike',
+                    4: 'Crash Lightning',
+                    5: 'Sundering',
+                    6: 'Primordial Wave',
+                    7: 'Elemental Blast',
+                    8: 'Lightning Bolt',
+                    9: 'Chain Lightning',
+                    10: 'Flame Shock',
+                    11: 'Frost Shock',
+                    12: 'Capacitor Totem',
+                    13: 'Ghost Wolf',
+                    14: 'Cleanse Spirit',
+                    15: 'Hex'
                 }
             },
             Restoration: {
@@ -541,6 +804,23 @@ const Classes = {
                     6: 'Wind Shear',
                     7: '[Racial]',
                     8: 'Combat Pot'
+                },
+                rotation: {
+                    1: 'Riptide',
+                    2: 'Healing Wave',
+                    3: 'Healing Surge',
+                    4: 'Chain Heal',
+                    5: 'Healing Rain',
+                    6: 'Cloudburst Totem',
+                    7: 'Primordial Wave',
+                    8: 'Mana Tide Totem',
+                    9: 'Earthen Wall Totem',
+                    10: 'Purify Spirit',
+                    11: 'Ghost Wolf',
+                    12: 'Capacitor Totem',
+                    13: 'Earth Shield',
+                    14: 'Water Shield',
+                    15: 'Hex'
                 }
             }
         }
@@ -560,6 +840,23 @@ const Classes = {
                     6: '[No Interrupt]',
                     7: '[Racial]',
                     8: 'Combat Pot'
+                },
+                rotation: {
+                    1: 'Unstable Affliction',
+                    2: 'Agony',
+                    3: 'Corruption',
+                    4: 'Malefic Rapture',
+                    5: 'Drain Soul',
+                    6: 'Seed of Corruption',
+                    7: 'Vile Taint',
+                    8: 'Phantom Singularity',
+                    9: 'Soul Rot',
+                    10: 'Summon Darkglare',
+                    11: 'Haunt',
+                    12: 'Nightfall',
+                    13: 'Shadow Embrace',
+                    14: 'Curse of Tongues',
+                    15: 'Create Healthstone'
                 }
             },
             Demonology: {
@@ -573,6 +870,23 @@ const Classes = {
                     6: '[No Interrupt]',
                     7: '[Racial]',
                     8: 'Combat Pot'
+                },
+                rotation: {
+                    1: "Hand of Gul'dan",
+                    2: 'Demonbolt',
+                    3: 'Shadow Bolt',
+                    4: 'Call Dreadstalkers',
+                    5: 'Implosion',
+                    6: 'Summon Demonic Tyrant',
+                    7: 'Grimoire: Felguard',
+                    8: 'Demonic Strength',
+                    9: 'Power Siphon',
+                    10: 'Doom',
+                    11: 'Soul Strike',
+                    12: 'Bilescourge Bombers',
+                    13: 'Curse of Weakness',
+                    14: 'Create Healthstone',
+                    15: 'Summon Felguard'
                 }
             },
             Destruction: {
@@ -586,6 +900,23 @@ const Classes = {
                     6: '[No Interrupt]',
                     7: '[Racial]',
                     8: 'Combat Pot'
+                },
+                rotation: {
+                    1: 'Chaos Bolt',
+                    2: 'Incinerate',
+                    3: 'Conflagrate',
+                    4: 'Immolate',
+                    5: 'Rain of Fire',
+                    6: 'Havoc',
+                    7: 'Summon Infernal',
+                    8: 'Channel Demonfire',
+                    9: 'Shadowburn',
+                    10: 'Cataclysm',
+                    11: 'Dimensional Rift',
+                    12: 'Soul Fire',
+                    13: 'Curse of Exhaustion',
+                    14: 'Create Healthstone',
+                    15: 'Summon Imp'
                 }
             }
         }
@@ -605,6 +936,23 @@ const Classes = {
                     6: 'Pummel',
                     7: '[Racial]',
                     8: 'Combat Pot'
+                },
+                rotation: {
+                    1: 'Mortal Strike',
+                    2: 'Overpower',
+                    3: 'Execute',
+                    4: 'Slam',
+                    5: 'Colossus Smash',
+                    6: 'Bladestorm',
+                    7: 'Sweeping Strikes',
+                    8: 'Cleave',
+                    9: 'Hamstring',
+                    10: 'Victory Rush',
+                    11: 'Thunder Clap',
+                    12: 'Charge',
+                    13: 'Heroic Leap',
+                    14: 'Heroic Throw',
+                    15: 'Berserker Rage'
                 }
             },
             Fury: {

@@ -14,21 +14,21 @@ function GeneratePvPPage(classId, specId, raceId, keybindManager, iconManager) {
     // Row 1 (0-7)
     const row1 = [
         { type: 'back', name: 'Back' }, // 0
-        { name: 'Target Arena 1', type: 'macro', settings: { macro: '/target arena1', icon: 'Arena1' } },
-        { name: 'Target Arena 2', type: 'macro', settings: { macro: '/target arena2', icon: 'Arena2' } },
-        { name: 'Target Arena 3', type: 'macro', settings: { macro: '/target arena3', icon: 'Arena3' } },
-        { name: 'Focus Arena 1', type: 'macro', settings: { macro: '/focus arena1', icon: 'Focus1' } },
-        { name: 'Focus Arena 2', type: 'macro', settings: { macro: '/focus arena2', icon: 'Focus2' } },
-        { name: 'Focus Arena 3', type: 'macro', settings: { macro: '/focus arena3', icon: 'Focus3' } },
+        { name: 'Target Arena 1', type: 'hotkey', settings: { icon: 'Arena1' } },
+        { name: 'Target Arena 2', type: 'hotkey', settings: { icon: 'Arena2' } },
+        { name: 'Target Arena 3', type: 'hotkey', settings: { icon: 'Arena3' } },
+        { name: 'Focus Arena 1', type: 'hotkey', settings: { icon: 'Focus1' } },
+        { name: 'Focus Arena 2', type: 'hotkey', settings: { icon: 'Focus2' } },
+        { name: 'Focus Arena 3', type: 'hotkey', settings: { icon: 'Focus3' } },
         { type: 'empty' }
     ];
 
     // Row 2 (8-15)
     const row2 = [
-        { name: 'BG Map', type: 'hotkey', defaultKey: 'Shift+M', settings: { icon: 'Map' } },
-        { name: 'Report AFK', type: 'macro', settings: { macro: '/chatlog', icon: 'Report' } }, // Placeholder macro
-        { type: 'empty' },
-        { type: 'empty' },
+        { name: 'BG Map', type: 'hotkey', defaultKey: 'Shift+M', settings: { icon: 'BG Map' } },
+        { name: 'Report AFK', type: 'hotkey', settings: { icon: 'Report' } },
+        { name: 'Focus Target', type: 'hotkey', settings: { icon: 'Focus Target' } }, // Fill
+        { name: 'Clear Focus', type: 'hotkey', settings: { icon: 'Clear Focus' } }, // Fill
         { type: 'empty' },
         { type: 'empty' },
         { type: 'empty' },
@@ -48,25 +48,23 @@ function GeneratePvPPage(classId, specId, raceId, keybindManager, iconManager) {
         ...universalBar
     ];
 
-    return allActions.map(item => {
+    console.log('PvPPage: Starting processing loop');
+    return allActions.map((item) => {
+        if (!item || item.type === 'empty' || item.type === 'back') return item;
+
+        // 1. Ensure Keybind
+        if (item.type === 'hotkey' && (!item.settings || !item.settings.hotkey)) {
+            let key = keybindManager.getKey(item.name);
+            if (!key) key = keybindManager.assignKey(item.name);
+            if (!item.settings) item.settings = {};
+            item.settings.hotkey = key;
+        }
+
+        // 2. Icon Resolution
         if (item.settings && item.settings.icon && !item.settings.icon.includes('/')) {
             const resolved = iconManager.resolveIcon(item.settings.icon);
             if (resolved) item.settings.icon = resolved;
         }
-
-        // Ensure hotkeys in row1/row2 are registered if they are 'hotkey' type
-        if (item.type === 'hotkey') {
-            let key = keybindManager.getKey(item.name);
-            if (!key && item.defaultKey) {
-                key = item.defaultKey;
-                if (typeof keybindManager.registerKey === 'function') {
-                    keybindManager.registerKey(item.name, key, true);
-                }
-                if (!item.settings) item.settings = {};
-                item.settings.hotkey = key;
-            }
-        }
-
         return item;
     });
 }

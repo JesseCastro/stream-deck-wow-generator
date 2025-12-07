@@ -2,24 +2,46 @@ const fs = require('fs');
 const path = require('path');
 
 class IconManager {
-    constructor(searchDirs, aliases = {}) {
+    constructor(searchDirs, aliases = {}, maxDepth = 3) {
         // Flatten searchDirs and recurse
         this.searchDirs = [];
         this.aliases = aliases;
         this.cache = new Map();
+        this.fileIndex = new Map(); // FileName (lowercase) -> FullPath
 
-        const addDirs = (dir) => {
+        const scanDir = (dir, depth = 0) => {
             if (!fs.existsSync(dir)) return;
             this.searchDirs.push(dir);
-            const entries = fs.readdirSync(dir, { withFileTypes: true });
+
+            let entries;
+            try {
+                entries = fs.readdirSync(dir, { withFileTypes: true });
+            } catch (e) { return; }
+
             for (const entry of entries) {
+                const fullPath = path.join(dir, entry.name);
                 if (entry.isDirectory()) {
-                    addDirs(path.join(dir, entry.name));
+                    if (depth < maxDepth) {
+                        scanDir(fullPath, depth + 1);
+                    }
+                } else if (entry.isFile() && entry.name.endsWith('.png')) {
+                    // Index file - normalize to lowercase for case-insensitive matching
+                    const nameLower = entry.name.toLowerCase().replace(/\.png$/, '');
+                    const simpleName = entry.name.replace(/\.png$/, '');
+
+                    // Store with lowercase key (prefer shallower/first found)
+                    if (!this.fileIndex.has(nameLower)) {
+                        this.fileIndex.set(nameLower, fullPath);
+                    }
+                    // Also store original casing as fallback
+                    if (!this.fileIndex.has(simpleName.toLowerCase())) {
+                        this.fileIndex.set(simpleName.toLowerCase(), fullPath);
+                    }
                 }
             }
         };
 
-        (searchDirs || []).forEach(d => addDirs(d));
+        (searchDirs || []).forEach(d => scanDir(d, 0));
     }
 
     /**
@@ -27,48 +49,24 @@ class IconManager {
      * @param {string} name - Base name of the icon (e.g. 'Spell_Holy_Light')
      * @returns {string|null} Absolute path or null if not found
      */
-    resolveIcon(name) {
-        if (!name) return null;
+    resolveIcon(iconName) {
+        if (!iconName) return null;
 
         // Check aliases first
-        const alias = this.aliases[name];
-        const searchName = alias || name;
+        const alias = this.aliases[iconName];
+        const searchName = alias || iconName;
 
         if (this.cache.has(searchName)) return this.cache.get(searchName);
 
-        // If alias was used, check if the alias itself is a known path? 
-        // No, aliases map Name -> OtherName (e.g. 'Cross' -> 'INV_Misc_Skull').
-        // Then we search for 'INV_Misc_Skull'.
+        // Direct Index Lookup O(1)
+        const lowerName = searchName.toLowerCase().replace(/\.png$/, '');
 
-        for (const dir of this.searchDirs) {
-            if (!fs.existsSync(dir)) continue;
+        // Try exact match in index
+        const indexed = this.fileIndex.get(searchName) || this.fileIndex.get(lowerName);
 
-            const candidates = [searchName];
-            if (!searchName.endsWith('.png')) candidates.push(`${searchName}.png`);
-
-            // 1. Exact & Extension match
-            for (const candidate of candidates) {
-                const fullPath = path.join(dir, candidate);
-                if (fs.existsSync(fullPath) && fs.statSync(fullPath).isFile()) {
-                    this.cache.set(name, fullPath); // Cache original name -> path
-                    return fullPath;
-                }
-            }
-
-            // 2. Fuzzy match
-            const contents = this.getDirectoryFiles(dir);
-            const cleanSearch = searchName.replace(/\s/g, '').toLowerCase().replace(/\.png$/, '');
-
-            for (const file of contents) {
-                const cleanFile = file.replace(/\s/g, '').toLowerCase().replace(/\.png$/, '');
-                if (cleanFile === cleanSearch) {
-                    const fuzzyPath = path.join(dir, file);
-                    if (fs.statSync(fuzzyPath).isFile()) {
-                        this.cache.set(name, fuzzyPath);
-                        return fuzzyPath;
-                    }
-                }
-            }
+        if (indexed) {
+            this.cache.set(iconName, indexed);
+            return indexed;
         }
 
         return null; // Not found

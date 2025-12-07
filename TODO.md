@@ -33,6 +33,16 @@ This list breaks down the implementation of `streamdeck-generator` into atomic, 
 22. **[T-022]** [x] Fix Navigation & Folder Links (Revert Manifest to Tree Structure)put to `Build/` directory
 18. **[T-018]** [x] Document Icon Processing & Restore Scripts
 
+## Phase 6: Critical Fixes (Priority: URGENT)
+23. **[T-023]** [x] Regenerate Paladin Protection Profile (Restore Working State)
+24. **[T-024]** [x] Implement ACTUAL Lua Keybind Installation Script
+25. **[T-025]** [x] Add Paladin Panic Row Icon Overrides  
+26. **[T-026]** [x] Add Dynamic Class Folder Icon (Not Hardcoded Paladin)
+27. **[T-027]** [ ] Add Panic Row Icon Overrides for ALL Classes
+28. **[T-028]** [ ] Populate Rotation Data for All Classes in classes.js
+29. **[T-029]** [ ] Add Ability Icon Overrides for Common Cross-Class Abilities
+30. **[T-030]** [x] Verify Icon Coverage with Manifest Inspection (TDD)
+
 ---
 
 > Note: Detailed task specifications will be generated iteratively as work proceeds.
