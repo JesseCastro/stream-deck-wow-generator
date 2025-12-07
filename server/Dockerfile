@@ -3,13 +3,16 @@ FROM node:20-alpine
 
 # Create non-root user
 RUN addgroup -g 1001 -S appgroup && \
-    adduser -u 1001 -S appuser -G appgroup
+  adduser -u 1001 -S appuser -G appgroup
 
 WORKDIR /app
 
 # Copy package files
 COPY package*.json ./
 COPY server/package*.json ./server/
+
+# Install root dependencies (needed for generator code)
+RUN npm ci --only=production
 
 # Install server dependencies
 WORKDIR /app/server
@@ -22,7 +25,7 @@ COPY server/ ./server/
 
 # Create downloads directory
 RUN mkdir -p /app/server/downloads && \
-    chown -R appuser:appgroup /app
+  chown -R appuser:appgroup /app
 
 # Switch to non-root user
 USER appuser
